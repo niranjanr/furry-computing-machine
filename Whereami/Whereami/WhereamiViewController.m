@@ -29,4 +29,9 @@
     NSLog(@"%@", newLocation);
 }
 
+- (void)dealloc {
+    self.locationManager.delegate = nil;
+    self.locationManager = nil;
+}
+
 @end
