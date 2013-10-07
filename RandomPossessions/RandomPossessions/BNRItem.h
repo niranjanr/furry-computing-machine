@@ -19,4 +19,6 @@
          valueInDollars: (NSInteger)dollars
            serialNumber: (NSString *)serialNumber;
 
++ (id) randomItem;
+
 @end

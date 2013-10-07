@@ -17,23 +17,12 @@ int main(int argc, const char * argv[])
         // create a mutable array object & store its address in the 'items' variable
         NSMutableArray *items = [[NSMutableArray alloc] init];
         
-        [items addObject:@"One"];
-        [items addObject:@"Two"];
-        [items addObject:@"Three"];
-        
-        [items insertObject:@"Zero" atIndex:0];
-        
-        for (int i = 0; i < items.count; i ++) {
-            NSLog(@"%@", [items objectAtIndex:i]);
+        for (int i = 0; i < 10; i++) {
+            BNRItem *p = [BNRItem randomItem];
+            [items addObject:p];
+            NSLog(@"%@", p);
         }
         
-        BNRItem *p = [[BNRItem alloc] init];
-        NSLog(@"%@", p);
-        p.itemName = @"Red Sofa";
-        p.serialNumber = @"A1B2C3";
-        p.valueInDollars = 100;
-        
-        NSLog(@"%@", p);
         // destroy the array pointed to by items
         items = nil;
     }
