@@ -34,6 +34,13 @@
     self.locationManager = nil;
 }
 
+// text field delegate methods
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    [self findLocation];
+    [textField resignFirstResponder];
+    return YES;
+}
+
 // location manager delegate methods
 - (void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation {
     NSLog(@"%@", newLocation);
