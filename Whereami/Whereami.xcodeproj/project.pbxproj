@@ -22,6 +22,8 @@
 		E01EDB1A180260E700555582 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = E01EDB18180260E700555582 /* InfoPlist.strings */; };
 		E01EDB1C180260E700555582 /* WhereamiTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E01EDB1B180260E700555582 /* WhereamiTests.m */; };
 		E01EDB261802613200555582 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E01EDB251802613200555582 /* CoreLocation.framework */; };
+		E01EDB281802EDFC00555582 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E01EDB271802EDFC00555582 /* MapKit.framework */; };
+		E01EDB2B1802EF0C00555582 /* BNRMapPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = E01EDB2A1802EF0C00555582 /* BNRMapPoint.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +57,9 @@
 		E01EDB19180260E700555582 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		E01EDB1B180260E700555582 /* WhereamiTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WhereamiTests.m; sourceTree = "<group>"; };
 		E01EDB251802613200555582 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		E01EDB271802EDFC00555582 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		E01EDB291802EF0C00555582 /* BNRMapPoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BNRMapPoint.h; path = ../BNRMapPoint.h; sourceTree = "<group>"; };
+		E01EDB2A1802EF0C00555582 /* BNRMapPoint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BNRMapPoint.m; path = ../BNRMapPoint.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +67,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E01EDB281802EDFC00555582 /* MapKit.framework in Frameworks */,
 				E01EDB261802613200555582 /* CoreLocation.framework in Frameworks */,
 				E01EDAF3180260E700555582 /* CoreGraphics.framework in Frameworks */,
 				E01EDAF5180260E700555582 /* UIKit.framework in Frameworks */,
@@ -104,6 +110,7 @@
 		E01EDAEF180260E700555582 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				E01EDB271802EDFC00555582 /* MapKit.framework */,
 				E01EDB251802613200555582 /* CoreLocation.framework */,
 				E01EDAF0180260E700555582 /* Foundation.framework */,
 				E01EDAF2180260E700555582 /* CoreGraphics.framework */,
@@ -116,6 +123,8 @@
 		E01EDAF6180260E700555582 /* Whereami */ = {
 			isa = PBXGroup;
 			children = (
+				E01EDB291802EF0C00555582 /* BNRMapPoint.h */,
+				E01EDB2A1802EF0C00555582 /* BNRMapPoint.m */,
 				E01EDAFF180260E700555582 /* WhereamiAppDelegate.h */,
 				E01EDB00180260E700555582 /* WhereamiAppDelegate.m */,
 				E01EDB02180260E700555582 /* Main.storyboard */,
@@ -256,6 +265,7 @@
 			files = (
 				E01EDB01180260E700555582 /* WhereamiAppDelegate.m in Sources */,
 				E01EDAFD180260E700555582 /* main.m in Sources */,
+				E01EDB2B1802EF0C00555582 /* BNRMapPoint.m in Sources */,
 				E01EDB07180260E700555582 /* WhereamiViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
