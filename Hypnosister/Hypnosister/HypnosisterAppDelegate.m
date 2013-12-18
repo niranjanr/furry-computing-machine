@@ -16,15 +16,17 @@
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
 
-    CGRect viewFrame = CGRectMake(160, 240, 100, 100);
+    CGRect viewFrame = self.window.bounds;
     HypnosisView *hypnosisView = [[HypnosisView alloc] initWithFrame:viewFrame];
     // hypnosisView.backgroundColor = [UIColor redColor];
     [self.window addSubview:hypnosisView];
+    BOOL success = [hypnosisView becomeFirstResponder];
+    if (success) {
+        NSLog(@"HypnosisView became the first responder");
+    } else {
+        NSLog(@"HypnosisView could not become the first responder");
+    }
     
-    CGRect secondFrame = CGRectMake(20, 30, 50, 50);
-    HypnosisView *secondView = [[HypnosisView alloc] initWithFrame:secondFrame];
-    // secondView.backgroundColor = [UIColor blueColor];
-    [hypnosisView addSubview:secondView];
     
     // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];
