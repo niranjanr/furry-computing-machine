@@ -16,6 +16,9 @@
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
 
+    // fade out the status bar
+    [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationFade];
+
     CGRect screenRect = self.window.bounds;
     UIScrollView *scrollView = [[UIScrollView alloc] initWithFrame:screenRect];
     scrollView.minimumZoomScale = 1.0;
