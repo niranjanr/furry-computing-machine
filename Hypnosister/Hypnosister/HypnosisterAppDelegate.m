@@ -22,9 +22,13 @@
 
     CGRect bigRect = screenRect;
     bigRect.size.width *= 2;
-    bigRect.size.height *= 2;
-    HypnosisView *hypnosisView = [[HypnosisView alloc] initWithFrame:bigRect];
+    HypnosisView *hypnosisView = [[HypnosisView alloc] initWithFrame:screenRect];
     [scrollView addSubview:hypnosisView];
+
+    screenRect.origin.x = screenRect.size.width;
+    HypnosisView *anotherView = [[HypnosisView alloc] initWithFrame:screenRect];
+    [scrollView addSubview:anotherView];
+
     scrollView.contentSize = bigRect.size;
 
     BOOL success = [hypnosisView becomeFirstResponder];
