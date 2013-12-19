@@ -10,4 +10,12 @@
 
 @implementation TimeViewController
 
+- (void)showCurrentTime:(id)sender {
+    NSDate *now = [NSDate date];
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    dateFormatter.timeStyle = NSDateFormatterMediumStyle;
+    self.timeLabel.text = [dateFormatter stringFromDate:now];
+    NSLog(@"We are now showing the current time");
+}
+
 @end

@@ -10,4 +10,8 @@
 
 @interface TimeViewController : UIViewController
 
+@property (nonatomic, strong) IBOutlet UILabel* timeLabel;
+
+- (IBAction)showCurrentTime:(id)sender;
+
 @end
