@@ -17,4 +17,17 @@
     self.view = v;
 }
 
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
+    self = [super initWithNibName:nil bundle:nil];
+
+    if (self) {
+        UITabBarItem *item = self.tabBarItem;
+        item.title = @"Hypnosis";
+
+        UIImage *image = [UIImage imageNamed:@"Hypno.png"];
+        item.image = image;
+    }
+
+    return self;
+}
 @end

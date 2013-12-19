@@ -15,12 +15,15 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    
-    // HypnosisViewController *vc = [[HypnosisViewController alloc] init];
-    // self.window.rootViewController = vc;
+
+    HypnosisViewController *vc = [[HypnosisViewController alloc] init];
     TimeViewController *tvc = [[TimeViewController alloc] init];
-    self.window.rootViewController = tvc;
-    
+    UITabBarController *tbc = [[UITabBarController alloc] init];
+
+    NSArray *viewControllers = [NSArray arrayWithObjects:vc, tvc, nil];
+    tbc.viewControllers = viewControllers;
+    self.window.rootViewController = tbc;
+
     // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];

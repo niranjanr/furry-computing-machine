@@ -23,6 +23,10 @@
 		C491C4DD186274EE00AC961D /* HypnosisView.m in Sources */ = {isa = PBXBuildFile; fileRef = C491C4DC186274EE00AC961D /* HypnosisView.m */; };
 		C491C4E01862766700AC961D /* TimeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C491C4DF1862766700AC961D /* TimeViewController.m */; };
 		C491C4E2186276F500AC961D /* TimeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C491C4E1186276F500AC961D /* TimeViewController.xib */; };
+		C491C4E518628F3300AC961D /* Hypno.png in Resources */ = {isa = PBXBuildFile; fileRef = C491C4E318628F3300AC961D /* Hypno.png */; };
+		C491C4E618628F3300AC961D /* Hypno@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C491C4E418628F3300AC961D /* Hypno@2x.png */; };
+		C491C4E918628F7200AC961D /* Time.png in Resources */ = {isa = PBXBuildFile; fileRef = C491C4E718628F7200AC961D /* Time.png */; };
+		C491C4EA18628F7200AC961D /* Time@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C491C4E818628F7200AC961D /* Time@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +63,10 @@
 		C491C4DE1862766700AC961D /* TimeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TimeViewController.h; path = ../TimeViewController.h; sourceTree = "<group>"; };
 		C491C4DF1862766700AC961D /* TimeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TimeViewController.m; path = ../TimeViewController.m; sourceTree = "<group>"; };
 		C491C4E1186276F500AC961D /* TimeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TimeViewController.xib; sourceTree = "<group>"; };
+		C491C4E318628F3300AC961D /* Hypno.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Hypno.png; sourceTree = "<group>"; };
+		C491C4E418628F3300AC961D /* Hypno@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Hypno@2x.png"; sourceTree = "<group>"; };
+		C491C4E718628F7200AC961D /* Time.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Time.png; sourceTree = "<group>"; };
+		C491C4E818628F7200AC961D /* Time@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Time@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,6 +126,10 @@
 		C491C4AF1862743D00AC961D /* Hypnotime */ = {
 			isa = PBXGroup;
 			children = (
+				C491C4E318628F3300AC961D /* Hypno.png */,
+				C491C4E418628F3300AC961D /* Hypno@2x.png */,
+				C491C4E718628F7200AC961D /* Time.png */,
+				C491C4E818628F7200AC961D /* Time@2x.png */,
 				C491C4DE1862766700AC961D /* TimeViewController.h */,
 				C491C4E1186276F500AC961D /* TimeViewController.xib */,
 				C491C4DF1862766700AC961D /* TimeViewController.m */,
@@ -238,8 +250,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C491C4EA18628F7200AC961D /* Time@2x.png in Resources */,
+				C491C4E918628F7200AC961D /* Time.png in Resources */,
 				C491C4B41862743D00AC961D /* InfoPlist.strings in Resources */,
 				C491C4E2186276F500AC961D /* TimeViewController.xib in Resources */,
+				C491C4E518628F3300AC961D /* Hypno.png in Resources */,
+				C491C4E618628F3300AC961D /* Hypno@2x.png in Resources */,
 				C491C4BC1862743D00AC961D /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

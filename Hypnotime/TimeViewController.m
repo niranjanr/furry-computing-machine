@@ -18,4 +18,18 @@
     NSLog(@"We are now showing the current time");
 }
 
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
+    self = [super initWithNibName:nil bundle:nil];
+
+    if (self) {
+        UITabBarItem *item = self.tabBarItem;
+        item.title = @"TimeView";
+
+        UIImage *image = [UIImage imageNamed:@"Time.png"];
+        item.image = image;
+    }
+
+    return self;
+}
+
 @end
