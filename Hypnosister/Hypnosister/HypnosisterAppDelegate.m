@@ -30,6 +30,7 @@
     [scrollView addSubview:anotherView];
 
     scrollView.contentSize = bigRect.size;
+    scrollView.pagingEnabled = YES;
 
     BOOL success = [hypnosisView becomeFirstResponder];
     if (success) {
