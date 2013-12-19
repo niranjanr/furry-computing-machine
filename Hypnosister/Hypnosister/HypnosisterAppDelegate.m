@@ -16,10 +16,17 @@
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
 
-    CGRect viewFrame = self.window.bounds;
-    HypnosisView *hypnosisView = [[HypnosisView alloc] initWithFrame:viewFrame];
-    // hypnosisView.backgroundColor = [UIColor redColor];
-    [self.window addSubview:hypnosisView];
+    CGRect screenRect = self.window.bounds;
+    UIScrollView *scrollView = [[UIScrollView alloc] initWithFrame:screenRect];
+    [self.window addSubview:scrollView];
+
+    CGRect bigRect = screenRect;
+    bigRect.size.width *= 2;
+    bigRect.size.height *= 2;
+    HypnosisView *hypnosisView = [[HypnosisView alloc] initWithFrame:bigRect];
+    [scrollView addSubview:hypnosisView];
+    scrollView.contentSize = bigRect.size;
+
     BOOL success = [hypnosisView becomeFirstResponder];
     if (success) {
         NSLog(@"HypnosisView became the first responder");
