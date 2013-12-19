@@ -18,28 +18,25 @@
 
     CGRect screenRect = self.window.bounds;
     UIScrollView *scrollView = [[UIScrollView alloc] initWithFrame:screenRect];
+    scrollView.minimumZoomScale = 1.0;
+    scrollView.maximumZoomScale = 5.0;
+    scrollView.delegate = self;
+
     [self.window addSubview:scrollView];
 
     CGRect bigRect = screenRect;
-    bigRect.size.width *= 2;
-    HypnosisView *hypnosisView = [[HypnosisView alloc] initWithFrame:screenRect];
-    [scrollView addSubview:hypnosisView];
-
-    screenRect.origin.x = screenRect.size.width;
-    HypnosisView *anotherView = [[HypnosisView alloc] initWithFrame:screenRect];
-    [scrollView addSubview:anotherView];
+    view = [[HypnosisView alloc] initWithFrame:screenRect];
+    [scrollView addSubview:view];
 
     scrollView.contentSize = bigRect.size;
-    scrollView.pagingEnabled = YES;
 
-    BOOL success = [hypnosisView becomeFirstResponder];
+    BOOL success = [view becomeFirstResponder];
     if (success) {
         NSLog(@"HypnosisView became the first responder");
     } else {
         NSLog(@"HypnosisView could not become the first responder");
     }
-    
-    
+
     // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
@@ -73,4 +70,7 @@
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
 
+-(UIView *)viewForZoomingInScrollView:(UIScrollView *)scrollView {
+    return view;
+}
 @end
