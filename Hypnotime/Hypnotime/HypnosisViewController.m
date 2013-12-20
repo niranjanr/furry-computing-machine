@@ -30,4 +30,10 @@
 
     return self;
 }
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+
+    NSLog(@"HypnosisViewController loaded its view");
+}
 @end

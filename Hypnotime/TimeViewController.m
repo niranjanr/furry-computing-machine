@@ -19,7 +19,9 @@
 }
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
-    self = [super initWithNibName:nil bundle:nil];
+    NSBundle *appBundle = [NSBundle mainBundle];
+
+    self = [super initWithNibName:@"TimeViewController" bundle:appBundle];
 
     if (self) {
         UITabBarItem *item = self.tabBarItem;
@@ -30,6 +32,23 @@
     }
 
     return self;
+}
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+
+    self.view.backgroundColor = [UIColor greenColor];
+
+    NSLog(@"TimeViewController loaded its view");
+}
+
+- (void)viewDidUnload {
+    [super viewDidUnload];
+
+    NSLog(@"Unloading TimeViewController's views");
+    NSLog(@"timeLabel = %@", self.timeLabel);
+
+    self.timeLabel = nil;
 }
 
 @end
