@@ -10,6 +10,8 @@
 #import "BNRItem.h"
 #import "BNRItemStore.h"
 
+NSString *ITEM_REUSE_IDENTIFIER = @"UITableViewCell1";
+
 @implementation ItemsViewController
 
 - (id)init
@@ -34,7 +36,10 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
 
-    UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"UITableViewCell"];
+    UITableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:ITEM_REUSE_IDENTIFIER];
+    if (!cell) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:ITEM_REUSE_IDENTIFIER];
+    }
     
     BNRItem *item = [[[BNRItemStore sharedStore] allItems] objectAtIndex:indexPath.row];
     cell.textLabel.text = item.description;
