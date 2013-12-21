@@ -42,13 +42,15 @@
     NSLog(@"TimeViewController loaded its view");
 }
 
-- (void)viewDidUnload {
-    [super viewDidUnload];
+- (void)viewWillAppear:(BOOL)animated {
+    NSLog(@"CurrentTimeViewController will appear");
+    [super viewWillAppear:animated];
 
-    NSLog(@"Unloading TimeViewController's views");
-    NSLog(@"timeLabel = %@", self.timeLabel);
-
-    self.timeLabel = nil;
+    [self showCurrentTime:nil];
 }
 
+- (void)viewWillDisappear:(BOOL)animated {
+    NSLog(@"CurrentTimeViewController will disappear");
+    [super viewWillDisappear:animated];
+}
 @end
