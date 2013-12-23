@@ -10,7 +10,7 @@
 
 @class BNRItem;
 
-@interface DetailViewController : UIViewController <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
+@interface DetailViewController : UIViewController <UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate>
 
 @property (weak, nonatomic) IBOutlet UITextField *nameField;
 @property (weak, nonatomic) IBOutlet UITextField *serialNumberField;
@@ -20,4 +20,5 @@
 @property (strong, nonatomic) BNRItem *item;
 
 - (IBAction)takePicture:(id)sender;
+- (IBAction)backgroundTapped:(id)sender;
 @end
