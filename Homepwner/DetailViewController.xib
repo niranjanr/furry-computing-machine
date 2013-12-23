@@ -7,6 +7,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DetailViewController">
             <connections>
                 <outlet property="dateLabel" destination="qwp-Xd-Y5y" id="VX7-Pd-VgR"/>
+                <outlet property="imageView" destination="4zt-Eg-LeN" id="Pqq-2e-gPv"/>
                 <outlet property="nameField" destination="tZg-GP-gVv" id="ONk-Jq-Dk1"/>
                 <outlet property="serialNumberField" destination="c4I-qb-ATQ" id="V5h-o8-fxa"/>
                 <outlet property="valueField" destination="eSG-kS-VRx" id="NxS-zb-gUg"/>
@@ -73,6 +74,21 @@
                         <outlet property="delegate" destination="-1" id="Wd9-ps-f9u"/>
                     </connections>
                 </textField>
+                <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nD7-0q-RVA">
+                    <rect key="frame" x="0.0" y="524" width="320" height="44"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                    <items>
+                        <barButtonItem systemItem="camera" id="BWI-Rs-XQF">
+                            <connections>
+                                <action selector="takePicture:" destination="-1" id="v5U-dF-vnh"/>
+                            </connections>
+                        </barButtonItem>
+                    </items>
+                </toolbar>
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4zt-Eg-LeN">
+                    <rect key="frame" x="40" y="318" width="240" height="177"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                </imageView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>

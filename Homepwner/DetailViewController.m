@@ -50,4 +50,18 @@
     item = it;
     self.navigationItem.title = item.itemName;
 }
+
+- (IBAction)takePicture:(id)sender {
+    UIImagePickerController *imagePicker = [[UIImagePickerController alloc] init];
+
+    if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
+        [imagePicker setSourceType:UIImagePickerControllerSourceTypeCamera];
+    } else {
+        [imagePicker setSourceType:UIImagePickerControllerSourceTypePhotoLibrary];
+    }
+
+    imagePicker.delegate = self;
+
+    [self presentViewController:imagePicker animated:YES completion:nil];
+}
 @end
