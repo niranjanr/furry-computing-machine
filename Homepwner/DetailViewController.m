@@ -7,6 +7,7 @@
 //
 
 #import "DetailViewController.h"
+#import "BNRItem.h"
 
 @interface DetailViewController ()
 
@@ -14,10 +15,39 @@
 
 @implementation DetailViewController
 
+@synthesize  item;
+
 - (void)viewDidLoad {
     [super viewDidLoad];
 
     self.view.backgroundColor = [UIColor groupTableViewBackgroundColor];
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+
+    self.nameField.text = self.item.itemName;
+    self.serialNumberField.text = self.item.serialNumber;
+    self.valueField.text = [NSString stringWithFormat:@"%d", self.item.valueInDollars];
+
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    dateFormatter.dateStyle = NSDateFormatterMediumStyle;
+    dateFormatter.timeStyle = NSDateFormatterNoStyle;
+    self.dateLabel.text = [dateFormatter stringFromDate:[item dateCreated]];
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+
+    [self.view endEditing:YES];
+
+    item.itemName = self.nameField.text;
+    item.serialNumber = self.serialNumberField.text;
+    item.valueInDollars = [self.valueField.text integerValue];
+}
+
+- (void)setItem:(BNRItem *)it {
+    item = it;
+    self.navigationItem.title = item.itemName;
+}
 @end
