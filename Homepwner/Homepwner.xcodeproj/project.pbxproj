@@ -24,6 +24,7 @@
 		42D1C7201865282800B2EBA0 /* BNRItemStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 42D1C71F1865282800B2EBA0 /* BNRItemStore.m */; };
 		C491C4F51867F19500AC961D /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C491C4F31867F19500AC961D /* DetailViewController.m */; };
 		C491C4F61867F19500AC961D /* DetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C491C4F41867F19500AC961D /* DetailViewController.xib */; };
+		C491C4F91868B56400AC961D /* BNRImageStore.m in Sources */ = {isa = PBXBuildFile; fileRef = C491C4F81868B56400AC961D /* BNRImageStore.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,6 +63,8 @@
 		C491C4F21867F19500AC961D /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
 		C491C4F31867F19500AC961D /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
 		C491C4F41867F19500AC961D /* DetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailViewController.xib; sourceTree = "<group>"; };
+		C491C4F71868B56400AC961D /* BNRImageStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNRImageStore.h; sourceTree = "<group>"; };
+		C491C4F81868B56400AC961D /* BNRImageStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNRImageStore.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,6 +94,8 @@
 		42240D861865264F0070F896 = {
 			isa = PBXGroup;
 			children = (
+				C491C4F71868B56400AC961D /* BNRImageStore.h */,
+				C491C4F81868B56400AC961D /* BNRImageStore.m */,
 				C491C4F21867F19500AC961D /* DetailViewController.h */,
 				C491C4F31867F19500AC961D /* DetailViewController.m */,
 				C491C4F41867F19500AC961D /* DetailViewController.xib */,
@@ -266,6 +271,7 @@
 			files = (
 				42D1C7201865282800B2EBA0 /* BNRItemStore.m in Sources */,
 				42240DC61865270A0070F896 /* ItemsViewController.m in Sources */,
+				C491C4F91868B56400AC961D /* BNRImageStore.m in Sources */,
 				42D1C71D186527F300B2EBA0 /* BNRItem.m in Sources */,
 				42240DA31865264F0070F896 /* HomepwnerAppDelegate.m in Sources */,
 				42240D9F1865264F0070F896 /* main.m in Sources */,
