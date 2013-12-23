@@ -81,4 +81,22 @@ NSString *ITEM_REUSE_IDENTIFIER = @"UITableViewCell1";
     return [self headerView];
 }
 
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+
+        // delete the item from the backing store
+        BNRItemStore *store = [BNRItemStore sharedStore];
+        NSMutableArray *items = [store allItems];
+        BNRItem *itemToDelete = [items objectAtIndex:indexPath.row];
+        [store removeItem:itemToDelete];
+
+        // delete the row from the table
+        [self.tableView deleteRowsAtIndexPaths:[NSArray arrayWithObjects:indexPath, nil] withRowAnimation:UITableViewRowAnimationFade];
+    }
+}
+
+- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)sourceIndexPath toIndexPath:(NSIndexPath *)destinationIndexPath {
+    [[BNRItemStore sharedStore] moveItemAtIndex:sourceIndexPath.row toIndex:destinationIndexPath.row];
+}
+
 @end

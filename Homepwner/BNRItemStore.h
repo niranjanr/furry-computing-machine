@@ -15,6 +15,9 @@
 @property (nonatomic, strong) NSMutableArray* allItems;
 
 - (BNRItem *)createItem;
+- (void)removeItem:(BNRItem *)item;
+- (void)moveItemAtIndex:(int)from toIndex:(int)to;
+
 
 +(BNRItemStore *)sharedStore;
 

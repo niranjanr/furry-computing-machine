@@ -37,6 +37,11 @@
     return item;
 }
 
+- (void)removeItem:(BNRItem *)item {
+    [self.allItems removeObjectIdenticalTo:item];
+}
+
+
 - (id)init {
     self = [super init];
     
@@ -45,6 +50,16 @@
     }
     
     return self;
+}
+
+- (void)moveItemAtIndex:(int)from toIndex:(int)to {
+    if (from == to) {
+        return;
+    }
+
+    BNRItem *itemToMove = [self.allItems objectAtIndex:from];
+    [self.allItems removeObjectAtIndex:from];
+    [self.allItems insertObject:itemToMove atIndex:to];
 }
 
 @end
