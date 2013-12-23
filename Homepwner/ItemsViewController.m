@@ -21,6 +21,11 @@ NSString *ITEM_REUSE_IDENTIFIER = @"UITableViewCell1";
     if (self) {
         UINavigationItem *n = self.navigationItem;
         n.title = @"Homepwner";
+        
+        UIBarButtonItem *bbi = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addNewItem:)];
+        self.navigationItem.rightBarButtonItem = bbi;
+        
+        self.navigationItem.leftBarButtonItem = self.editButtonItem;
 
         // create 5 items in the item store
         for (int i = 0; i < 5; i++) {
@@ -51,13 +56,6 @@ NSString *ITEM_REUSE_IDENTIFIER = @"UITableViewCell1";
     return cell;
 }
 
--(UIView *)headerView {
-    if (!headerView) {
-        [[NSBundle mainBundle] loadNibNamed:@"HeaderView" owner:self options:nil];
-    }
-    return headerView;
-}
-
 #pragma mark
 
 - (IBAction)addNewItem:(id)sender {
@@ -65,24 +63,6 @@ NSString *ITEM_REUSE_IDENTIFIER = @"UITableViewCell1";
     int lastRow = [[[BNRItemStore sharedStore] allItems] indexOfObject:newItem];
     NSIndexPath *ip = [NSIndexPath indexPathForRow:lastRow inSection:0];
     [self.tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:ip] withRowAnimation:UITableViewRowAnimationTop];
-}
-
-- (IBAction)toggleEditingMode:(id)sender {
-    if (self.isEditing) {
-        [sender setTitle:@"Edit" forState:UIControlStateNormal];
-        [self setEditing:NO animated:YES];
-    } else {
-        [sender setTitle:@"Done" forState:UIControlStateNormal];
-        [self setEditing:YES animated:YES];
-    }
-}
-
-- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
-    return [[self headerView] bounds].size.height;
-}
-
-- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
-    return [self headerView];
 }
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
