@@ -84,7 +84,7 @@ NSString *ITEM_REUSE_IDENTIFIER = @"UITableViewCell1";
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    DetailViewController *dtvc = [[DetailViewController alloc] init];
+    DetailViewController *dtvc = [[DetailViewController alloc] initForNewItem:NO];
 
     NSArray *items = [[BNRItemStore sharedStore] allItems];
     BNRItem *selectedItem = [items objectAtIndex:indexPath.row];

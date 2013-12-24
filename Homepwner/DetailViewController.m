@@ -137,4 +137,33 @@
     imagePickerPopover = nil;
 }
 
+- (id)initForNewItem:(BOOL)isNew {
+    self = [super initWithNibName:@"DetailViewController" bundle:nil];
+
+    if (self) {
+        if (isNew) {
+            UIBarButtonItem *doneItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(save:)];
+            self.navigationItem.rightBarButtonItem = doneItem;
+
+            UIBarButtonItem *cancelItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(cancel:)];
+            self.navigationItem.leftBarButtonItem = cancelItem;
+        }
+    }
+
+    return self;
+}
+
+-(void)save:(id)argument {
+    // TODO:
+}
+
+-(void)cancel:(id)argument {
+    // TODO:
+}
+
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
+    @throw [NSException exceptionWithName:@"Wrong initializer" reason:@"User initForNewItem" userInfo:nil];
+    return nil;
+}
+
 @end

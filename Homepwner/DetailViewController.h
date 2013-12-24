@@ -22,4 +22,7 @@
 
 - (IBAction)takePicture:(id)sender;
 - (IBAction)backgroundTapped:(id)sender;
+
+- (id)initForNewItem:(BOOL)isNew;
+
 @end
