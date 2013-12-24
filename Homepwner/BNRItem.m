@@ -99,9 +99,31 @@
      dateCreated];
     return descriptionString;
 }
+
 - (void)dealloc
 {
     NSLog(@"Destroyed: %@ ", self);
+}
+
+- (void)encodeWithCoder:(NSCoder *)aCoder {
+    [aCoder encodeObject:self.itemName forKey:@"itemName"];
+    [aCoder encodeObject:self.serialNumber forKey:@"serialNumber"];
+    [aCoder encodeObject:self.dateCreated forKey:@"dateCreated"];
+    [aCoder encodeObject:self.imageKey forKey:@"imageKey"];
+
+    [aCoder encodeInteger:self.valueInDollars forKey:@"valueInDollars"];
+}
+
+- (id)initWithCoder:(NSCoder *)aDecoder {
+    self = [super init];
+    if (self) {
+        self.itemName = [aDecoder decodeObjectForKey:@"itemName"];
+        self.serialNumber = [aDecoder decodeObjectForKey:@"serialNumber"];
+        self.dateCreated = [aDecoder decodeObjectForKey:@"dateCreated"];
+        self.imageKey = [aDecoder decodeObjectForKey:@"imageKey"];
+        self.valueInDollars = [aDecoder decodeIntegerForKey:@"valueInDollars"];
+    }
+    return self;
 }
 
 @end
