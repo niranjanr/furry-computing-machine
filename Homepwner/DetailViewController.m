@@ -9,6 +9,7 @@
 #import "DetailViewController.h"
 #import "BNRItem.h"
 #import "BNRImageStore.h"
+#import "BNRItemStore.h"
 
 @interface DetailViewController ()
 
@@ -16,8 +17,9 @@
 
 @implementation DetailViewController
 
-@synthesize  item;
-@synthesize  imagePickerPopover;
+@synthesize item;
+@synthesize imagePickerPopover;
+@synthesize dismissBlock;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -153,12 +155,14 @@
     return self;
 }
 
--(void)save:(id)argument {
-    // TODO:
+-(void)save:(id)sender {
+    [self.presentingViewController dismissViewControllerAnimated:YES completion:self.dismissBlock];
 }
 
--(void)cancel:(id)argument {
-    // TODO:
+-(void)cancel:(id)sender {
+    [[BNRItemStore sharedStore] removeItem:self.item];
+
+    [self.presentingViewController dismissViewControllerAnimated:YES completion:self.dismissBlock];
 }
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {

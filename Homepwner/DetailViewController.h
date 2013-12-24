@@ -19,6 +19,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
 @property (strong, nonatomic) BNRItem *item;
 @property (strong, nonatomic) UIPopoverController *imagePickerPopover;
+@property (copy, nonatomic) void (^dismissBlock)(void);
 
 - (IBAction)takePicture:(id)sender;
 - (IBAction)backgroundTapped:(id)sender;

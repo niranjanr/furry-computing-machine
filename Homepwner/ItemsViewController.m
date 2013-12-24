@@ -60,9 +60,18 @@ NSString *ITEM_REUSE_IDENTIFIER = @"UITableViewCell1";
 
 - (IBAction)addNewItem:(id)sender {
     BNRItem *newItem = [[BNRItemStore sharedStore] createItem];
-    int lastRow = [[[BNRItemStore sharedStore] allItems] indexOfObject:newItem];
-    NSIndexPath *ip = [NSIndexPath indexPathForRow:lastRow inSection:0];
-    [self.tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:ip] withRowAnimation:UITableViewRowAnimationTop];
+
+    DetailViewController *dtvc = [[DetailViewController alloc] initForNewItem:YES];
+    dtvc.item = newItem;
+
+    dtvc.dismissBlock = ^{
+        [self.tableView reloadData];
+    };
+
+    UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:dtvc];
+    navController.modalPresentationStyle = UIModalPresentationFormSheet;
+    navController.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
+    [self presentViewController:navController animated:YES completion:nil];
 }
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
