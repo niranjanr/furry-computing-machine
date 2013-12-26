@@ -70,4 +70,10 @@
     return [documentDirectory stringByAppendingString:@"items.archive"];
 }
 
+- (BOOL)saveChanges {
+    NSString *path = self.itemArchivePath;
+
+    return [NSKeyedArchiver archiveRootObject:self.allItems toFile:path];
+}
+
 @end

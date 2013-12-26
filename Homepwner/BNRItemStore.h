@@ -18,6 +18,7 @@
 - (void)removeItem:(BNRItem *)item;
 - (void)moveItemAtIndex:(int)from toIndex:(int)to;
 - (NSString *)itemArchivePath;
+- (BOOL)saveChanges;
 
 
 + (BNRItemStore *)sharedStore;
