@@ -30,7 +30,7 @@
 
 #pragma mark instance methods
 - (BNRItem *)createItem {
-    BNRItem *item = [BNRItem randomItem];
+    BNRItem *item = [[BNRItem alloc] init];
     
     [self.allItems addObject:item];
     
@@ -41,12 +41,15 @@
     [self.allItems removeObjectIdenticalTo:item];
 }
 
-
 - (id)init {
     self = [super init];
     
     if (self) {
-        self.allItems = [[NSMutableArray alloc] init];
+        NSString *path = [self itemArchivePath];
+        self.allItems = [NSKeyedUnarchiver unarchiveObjectWithFile:path];
+        if (!self.allItems) {
+            self.allItems = [[NSMutableArray alloc] init];
+        }
     }
     
     return self;
