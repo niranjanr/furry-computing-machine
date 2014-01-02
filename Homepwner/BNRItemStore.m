@@ -6,6 +6,7 @@
 //  Copyright (c) 2013 Niranjan Ravichandran. All rights reserved.
 //
 
+#import "BNRImageStore.h"
 #import "BNRItemStore.h"
 #import "BNRItem.h"
 
@@ -38,6 +39,8 @@
 }
 
 - (void)removeItem:(BNRItem *)item {
+    NSString *key = item.imageKey;
+    [[BNRImageStore sharedStore] deleteImageForKey:key];
     [self.allItems removeObjectIdenticalTo:item];
 }
 
