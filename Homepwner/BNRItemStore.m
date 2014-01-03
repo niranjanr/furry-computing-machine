@@ -31,7 +31,8 @@
 
 #pragma mark instance methods
 - (BNRItem *)createItem {
-    BNRItem *item = [[BNRItem alloc] init];
+    // BNRItem *item = [[BNRItem alloc] init];
+    BNRItem *item = [BNRItem randomItem];
     
     [self.allItems addObject:item];
     

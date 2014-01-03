@@ -10,6 +10,7 @@
 #import "BNRItem.h"
 #import "BNRItemStore.h"
 #import "DetailViewController.h"
+#import "HomepwnerItemCell.h"
 
 NSString *ITEM_REUSE_IDENTIFIER = @"UITableViewCell1";
 
@@ -39,19 +40,25 @@ NSString *ITEM_REUSE_IDENTIFIER = @"UITableViewCell1";
     return [self init];
 }
 
+- (void)viewDidLoad {
+    [super viewDidLoad];
+
+    UINib *nib = [UINib nibWithNibName:@"HomepwnerItemCell" bundle:nil];
+    [self.tableView registerNib:nib forCellReuseIdentifier:@"HomepwnerItemCell"];
+}
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return [[[BNRItemStore sharedStore] allItems] count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
 
-    UITableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:ITEM_REUSE_IDENTIFIER];
-    if (!cell) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:ITEM_REUSE_IDENTIFIER];
-    }
-
     BNRItem *item = [[[BNRItemStore sharedStore] allItems] objectAtIndex:indexPath.row];
-    cell.textLabel.text = item.description;
+
+    HomepwnerItemCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"HomepwnerItemCell"];
+    cell.titleLabel.text = item.itemName;
+    cell.serialNumberLabel.text = item.serialNumber;
+    cell.valueLabel.text = [NSString stringWithFormat:@"%d", item.valueInDollars];
     
     return cell;
 }
