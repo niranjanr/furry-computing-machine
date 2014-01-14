@@ -58,8 +58,9 @@ NSString *ITEM_REUSE_IDENTIFIER = @"UITableViewCell1";
     HomepwnerItemCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"HomepwnerItemCell"];
     cell.titleLabel.text = item.itemName;
     cell.serialNumberLabel.text = item.serialNumber;
+    cell.thumbnailView.image = item.thumbnail;
     cell.valueLabel.text = [NSString stringWithFormat:@"%d", item.valueInDollars];
-    
+
     return cell;
 }
 
