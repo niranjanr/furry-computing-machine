@@ -22,6 +22,8 @@
 		42240DC61865270A0070F896 /* ItemsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 42240DC51865270A0070F896 /* ItemsViewController.m */; };
 		42854E7B1888FAFC0007B27D /* ImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 42854E791888FAFC0007B27D /* ImageViewController.m */; };
 		42854E7C1888FAFC0007B27D /* ImageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 42854E7A1888FAFC0007B27D /* ImageViewController.xib */; };
+		42854E7E1889B8470007B27D /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42854E7D1889B8470007B27D /* CoreData.framework */; };
+		42854E841889B89C0007B27D /* Homepwner.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 42854E821889B89C0007B27D /* Homepwner.xcdatamodeld */; };
 		42D1C71D186527F300B2EBA0 /* BNRItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 42D1C71C186527F300B2EBA0 /* BNRItem.m */; };
 		42D1C7201865282800B2EBA0 /* BNRItemStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 42D1C71F1865282800B2EBA0 /* BNRItemStore.m */; };
 		C491C4F51867F19500AC961D /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C491C4F31867F19500AC961D /* DetailViewController.m */; };
@@ -63,6 +65,8 @@
 		42854E781888FAFC0007B27D /* ImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageViewController.h; sourceTree = "<group>"; };
 		42854E791888FAFC0007B27D /* ImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageViewController.m; sourceTree = "<group>"; };
 		42854E7A1888FAFC0007B27D /* ImageViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ImageViewController.xib; sourceTree = "<group>"; };
+		42854E7D1889B8470007B27D /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		42854E831889B89C0007B27D /* Homepwner.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Homepwner.xcdatamodel; sourceTree = "<group>"; };
 		42D1C71B186527F300B2EBA0 /* BNRItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNRItem.h; sourceTree = "<group>"; };
 		42D1C71C186527F300B2EBA0 /* BNRItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNRItem.m; sourceTree = "<group>"; };
 		42D1C71E1865282800B2EBA0 /* BNRItemStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNRItemStore.h; sourceTree = "<group>"; };
@@ -82,6 +86,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				42854E7E1889B8470007B27D /* CoreData.framework in Frameworks */,
 				42240D951865264F0070F896 /* CoreGraphics.framework in Frameworks */,
 				42240D971865264F0070F896 /* UIKit.framework in Frameworks */,
 				42240D931865264F0070F896 /* Foundation.framework in Frameworks */,
@@ -104,6 +109,7 @@
 		42240D861865264F0070F896 = {
 			isa = PBXGroup;
 			children = (
+				42854E821889B89C0007B27D /* Homepwner.xcdatamodeld */,
 				F3AB6A491876900500BBA933 /* HomepwnerItemCell.h */,
 				F3AB6A4A1876900500BBA933 /* HomepwnerItemCell.m */,
 				F3AB6A4C1876902800BBA933 /* HomepwnerItemCell.xib */,
@@ -140,6 +146,7 @@
 		42240D911865264F0070F896 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				42854E7D1889B8470007B27D /* CoreData.framework */,
 				42240D921865264F0070F896 /* Foundation.framework */,
 				42240D941865264F0070F896 /* CoreGraphics.framework */,
 				42240D961865264F0070F896 /* UIKit.framework */,
@@ -296,6 +303,7 @@
 				42854E7B1888FAFC0007B27D /* ImageViewController.m in Sources */,
 				42240D9F1865264F0070F896 /* main.m in Sources */,
 				C491C4F51867F19500AC961D /* DetailViewController.m in Sources */,
+				42854E841889B89C0007B27D /* Homepwner.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -512,6 +520,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		42854E821889B89C0007B27D /* Homepwner.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				42854E831889B89C0007B27D /* Homepwner.xcdatamodel */,
+			);
+			currentVersion = 42854E831889B89C0007B27D /* Homepwner.xcdatamodel */;
+			path = Homepwner.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 42240D871865264F0070F896 /* Project object */;
 }
