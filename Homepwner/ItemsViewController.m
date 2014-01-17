@@ -60,6 +60,8 @@ NSString *ITEM_REUSE_IDENTIFIER = @"UITableViewCell1";
     cell.serialNumberLabel.text = item.serialNumber;
     cell.thumbnailView.image = item.thumbnail;
     cell.valueLabel.text = [NSString stringWithFormat:@"%d", item.valueInDollars];
+    cell.tableView = self.tableView;
+    cell.controller = self;
 
     return cell;
 }
@@ -122,5 +124,9 @@ NSString *ITEM_REUSE_IDENTIFIER = @"UITableViewCell1";
     } else {
         return toInterfaceOrientation == UIInterfaceOrientationPortrait;
     }
+}
+
+- (void)showImage:(id)sender atIndexPath:(NSIndexPath *)ip {
+  NSLog(@"Going to show the image for %@", ip);
 }
 @end
