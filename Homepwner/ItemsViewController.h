@@ -8,8 +8,10 @@
 
 #import <Foundation/Foundation.h>
 
-@interface ItemsViewController : UITableViewController <UITableViewDataSource, UITableViewDelegate> {
+@interface ItemsViewController : UITableViewController <UITableViewDataSource, UITableViewDelegate, UIPopoverControllerDelegate> {
 }
+
+@property (nonatomic, strong) UIPopoverController *imagePopover;
 
 - (IBAction)addNewItem:(id)sender;
 

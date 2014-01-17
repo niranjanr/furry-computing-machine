@@ -20,6 +20,8 @@
 		42240DB61865264F0070F896 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 42240DB41865264F0070F896 /* InfoPlist.strings */; };
 		42240DB81865264F0070F896 /* HomepwnerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 42240DB71865264F0070F896 /* HomepwnerTests.m */; };
 		42240DC61865270A0070F896 /* ItemsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 42240DC51865270A0070F896 /* ItemsViewController.m */; };
+		42854E7B1888FAFC0007B27D /* ImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 42854E791888FAFC0007B27D /* ImageViewController.m */; };
+		42854E7C1888FAFC0007B27D /* ImageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 42854E7A1888FAFC0007B27D /* ImageViewController.xib */; };
 		42D1C71D186527F300B2EBA0 /* BNRItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 42D1C71C186527F300B2EBA0 /* BNRItem.m */; };
 		42D1C7201865282800B2EBA0 /* BNRItemStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 42D1C71F1865282800B2EBA0 /* BNRItemStore.m */; };
 		C491C4F51867F19500AC961D /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C491C4F31867F19500AC961D /* DetailViewController.m */; };
@@ -58,6 +60,9 @@
 		42240DB71865264F0070F896 /* HomepwnerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomepwnerTests.m; sourceTree = "<group>"; };
 		42240DC41865270A0070F896 /* ItemsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemsViewController.h; sourceTree = "<group>"; };
 		42240DC51865270A0070F896 /* ItemsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ItemsViewController.m; sourceTree = "<group>"; };
+		42854E781888FAFC0007B27D /* ImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageViewController.h; sourceTree = "<group>"; };
+		42854E791888FAFC0007B27D /* ImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageViewController.m; sourceTree = "<group>"; };
+		42854E7A1888FAFC0007B27D /* ImageViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ImageViewController.xib; sourceTree = "<group>"; };
 		42D1C71B186527F300B2EBA0 /* BNRItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNRItem.h; sourceTree = "<group>"; };
 		42D1C71C186527F300B2EBA0 /* BNRItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNRItem.m; sourceTree = "<group>"; };
 		42D1C71E1865282800B2EBA0 /* BNRItemStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNRItemStore.h; sourceTree = "<group>"; };
@@ -102,6 +107,9 @@
 				F3AB6A491876900500BBA933 /* HomepwnerItemCell.h */,
 				F3AB6A4A1876900500BBA933 /* HomepwnerItemCell.m */,
 				F3AB6A4C1876902800BBA933 /* HomepwnerItemCell.xib */,
+				42854E781888FAFC0007B27D /* ImageViewController.h */,
+				42854E791888FAFC0007B27D /* ImageViewController.m */,
+				42854E7A1888FAFC0007B27D /* ImageViewController.xib */,
 				C491C4F71868B56400AC961D /* BNRImageStore.h */,
 				C491C4F81868B56400AC961D /* BNRImageStore.m */,
 				C491C4F21867F19500AC961D /* DetailViewController.h */,
@@ -256,6 +264,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				42854E7C1888FAFC0007B27D /* ImageViewController.xib in Resources */,
 				42240D9D1865264F0070F896 /* InfoPlist.strings in Resources */,
 				42240DA51865264F0070F896 /* Images.xcassets in Resources */,
 				F3AB6A4D1876902800BBA933 /* HomepwnerItemCell.xib in Resources */,
@@ -284,6 +293,7 @@
 				C491C4F91868B56400AC961D /* BNRImageStore.m in Sources */,
 				42D1C71D186527F300B2EBA0 /* BNRItem.m in Sources */,
 				42240DA31865264F0070F896 /* HomepwnerAppDelegate.m in Sources */,
+				42854E7B1888FAFC0007B27D /* ImageViewController.m in Sources */,
 				42240D9F1865264F0070F896 /* main.m in Sources */,
 				C491C4F51867F19500AC961D /* DetailViewController.m in Sources */,
 			);

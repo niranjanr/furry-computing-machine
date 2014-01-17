@@ -11,6 +11,8 @@
 #import "BNRItemStore.h"
 #import "DetailViewController.h"
 #import "HomepwnerItemCell.h"
+#import "BNRImageStore.h"
+#import "ImageViewController.h"
 
 NSString *ITEM_REUSE_IDENTIFIER = @"UITableViewCell1";
 
@@ -128,5 +130,30 @@ NSString *ITEM_REUSE_IDENTIFIER = @"UITableViewCell1";
 
 - (void)showImage:(id)sender atIndexPath:(NSIndexPath *)ip {
   NSLog(@"Going to show the image for %@", ip);
+
+  if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
+    BNRItem *item = [[[BNRItemStore sharedStore] allItems] objectAtIndex:[ip row]];
+    NSString *imageKey = item.imageKey;
+
+    UIImage *img = [[BNRImageStore sharedStore] imageForKey:imageKey];
+
+    // bail if there is no valid image
+    if (!img) {
+      return;
+    }
+
+    CGRect rect = [self.view convertRect:[sender bounds] fromView:sender];
+    ImageViewController *ivc = [[ImageViewController alloc] init];
+    ivc.image = img;
+    self.imagePopover = [[UIPopoverController alloc] initWithContentViewController:ivc];
+    self.imagePopover.delegate = self;
+    self.imagePopover.popoverContentSize = CGSizeMake(600, 600);
+    [self.imagePopover presentPopoverFromRect:rect inView:self.view permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
+  }
+}
+
+- (void)popoverControllerDidDismissPopover:(UIPopoverController *)popoverController {
+  [self.imagePopover dismissPopoverAnimated:YES];
+  self.imagePopover = nil;
 }
 @end
