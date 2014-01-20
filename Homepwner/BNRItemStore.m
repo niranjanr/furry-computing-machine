@@ -49,11 +49,24 @@
     self = [super init];
     
     if (self) {
-        NSString *path = [self itemArchivePath];
-        self.allItems = [NSKeyedUnarchiver unarchiveObjectWithFile:path];
-        if (!self.allItems) {
-            self.allItems = [[NSMutableArray alloc] init];
-        }
+      self.model = [NSManagedObjectModel mergedModelFromBundles:nil];
+      NSPersistentStoreCoordinator *psc = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:self.model];
+      
+      NSString *path = [self itemArchivePath];
+      NSURL *storeUrl = [NSURL fileURLWithPath:path];
+      NSError *error = nil;
+      
+      if (![psc addPersistentStoreWithType:NSSQLiteStoreType
+                             configuration:nil
+                                       URL:storeUrl
+                                   options:nil
+                                     error:&error]) {
+        [NSException raise:@"Open failed" format:@"Reason: %@", [error localizedDescription]];
+      }
+      
+      self.context = [[NSManagedObjectContext alloc] init];
+      self.context.persistentStoreCoordinator = psc;
+      self.context.undoManager = nil;
     }
     
     return self;
@@ -74,13 +87,23 @@
 
     NSString *documentDirectory = [documentDirectories objectAtIndex:0];
 
-    return [documentDirectory stringByAppendingString:@"items.archive"];
+    return [documentDirectory stringByAppendingPathComponent:@"store.data"];
 }
 
 - (BOOL)saveChanges {
-    NSString *path = self.itemArchivePath;
-
-    return [NSKeyedArchiver archiveRootObject:self.allItems toFile:path];
+  NSError *error = nil;
+  
+  BOOL successful = [self.context save:&error];
+  if (!successful) {
+    NSLog(@"Error saving: %@", [error localizedDescription]);
+  }
+  return successful;
 }
 
+- (void)loadAllItems {
+  if (!self.allItems) {
+    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+    NSEntityDescription *e = [self.model.entitiesByName]
+  }
+}
 @end

@@ -38,7 +38,7 @@
 
     self.nameField.text = self.item.itemName;
     self.serialNumberField.text = self.item.serialNumber;
-    self.valueField.text = [NSString stringWithFormat:@"%d", self.item.valueInDollars];
+    self.valueField.text = [NSString stringWithFormat:@"%@", self.item.valueInDollars];
 
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     dateFormatter.dateStyle = NSDateFormatterMediumStyle;
@@ -61,7 +61,7 @@
 
     item.itemName = self.nameField.text;
     item.serialNumber = self.serialNumberField.text;
-    item.valueInDollars = [self.valueField.text integerValue];
+    item.valueInDollars = [NSNumber numberWithInt:[self.valueField.text integerValue]];
 }
 
 - (void)setItem:(BNRItem *)it {
