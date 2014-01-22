@@ -61,7 +61,7 @@ NSString *ITEM_REUSE_IDENTIFIER = @"UITableViewCell1";
     cell.titleLabel.text = item.itemName;
     cell.serialNumberLabel.text = item.serialNumber;
     cell.thumbnailView.image = item.thumbnail;
-    cell.valueLabel.text = [NSString stringWithFormat:@"%d", item.valueInDollars];
+    cell.valueLabel.text = [NSString stringWithFormat:@"%@", item.valueInDollars];
     cell.tableView = self.tableView;
     cell.controller = self;
 

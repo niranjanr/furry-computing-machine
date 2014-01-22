@@ -20,9 +20,11 @@
 @property (strong, nonatomic) BNRItem *item;
 @property (strong, nonatomic) UIPopoverController *imagePickerPopover;
 @property (copy, nonatomic) void (^dismissBlock)(void);
+@property (weak, nonatomic) IBOutlet UIButton *assetTypeButton;
 
 - (IBAction)takePicture:(id)sender;
 - (IBAction)backgroundTapped:(id)sender;
+- (IBAction)showAssetTypePicker:(id)sender;
 
 - (id)initForNewItem:(BOOL)isNew;
 

@@ -24,6 +24,7 @@
 - (NSString *)itemArchivePath;
 - (BOOL)saveChanges;
 - (void)loadAllItems;
+- (NSArray *)allAssetTypes;
 
 
 + (BNRItemStore *)sharedStore;
