@@ -30,9 +30,28 @@
     UITapGestureRecognizer *tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self
                                                                                            action:@selector(tap:)];
     [self addGestureRecognizer:tapGestureRecognizer];
+
+    UILongPressGestureRecognizer *longPressRecognizer = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(longPress:)];
+    [self addGestureRecognizer:longPressRecognizer];
   }
 
   return self;
+}
+
+- (void)longPress:(UIGestureRecognizer *)gr {
+  if ([gr state] == UIGestureRecognizerStateBegan) {
+    CGPoint point = [gr locationInView:self];
+
+    self.selectedLine = [self lineAtPoint:point];
+
+    if (self.selectedLine) {
+      [self.linesInProcess removeAllObjects];
+    }
+  } else if ([gr state] == UIGestureRecognizerStateEnded) {
+    self.selectedLine = nil;
+  }
+
+  [self setNeedsDisplay];
 }
 
 - (void)tap:(UIGestureRecognizer *)gr {
