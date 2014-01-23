@@ -7,12 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Line.h"
 
 @interface TouchDrawView : UIView
 
 @property (nonatomic, strong) NSMutableDictionary *linesInProcess;
 @property (nonatomic, strong) NSMutableArray *completeLines;
+@property (nonatomic, weak) Line *selectedLine;
 
 - (void) clearAll;
+- (Line *)lineAtPoint:(CGPoint)point;
 
 @end
