@@ -10,7 +10,7 @@
 
 @interface TouchDrawView : UIView
 
-@property (nonatomic, strong) NSDictionary *linesInProcess;
+@property (nonatomic, strong) NSMutableDictionary *linesInProcess;
 @property (nonatomic, strong) NSMutableArray *completeLines;
 
 - (void) clearAll;
