@@ -33,6 +33,11 @@
 
     UILongPressGestureRecognizer *longPressRecognizer = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(longPress:)];
     [self addGestureRecognizer:longPressRecognizer];
+
+    self.moveRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(moveLine:)];
+    self.moveRecognizer.cancelsTouchesInView = NO;
+    self.moveRecognizer.delegate = self;
+    [self addGestureRecognizer:self.moveRecognizer];
   }
 
   return self;
@@ -133,6 +138,30 @@
   return nil;
 }
 
+- (void)moveLine:(UIPanGestureRecognizer*)gr {
+  if (!self.selectedLine) {
+    return;
+  }
+
+  if ([gr state] == UIGestureRecognizerStateChanged) {
+    CGPoint translation = [gr translationInView:self];
+
+    CGPoint begin = self.selectedLine.begin;
+    CGPoint end = self.selectedLine.end;
+    begin.x += translation.x;
+    begin.y += translation.y;
+    end.x += translation.x;
+    end.y += translation.y;
+
+    self.selectedLine.begin = begin;
+    self.selectedLine.end = end;
+
+    [self setNeedsDisplay];
+
+    [gr setTranslation:CGPointZero inView:self];
+  }
+}
+
 #pragma mark Touch Handling
 
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
@@ -181,6 +210,16 @@
 
 - (void)touchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event {
   [self endTouches:touches withEvent:event];
+}
+
+#pragma mark UIGestureRecognizer delegate methods
+
+- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer {
+  if (gestureRecognizer == self.moveRecognizer) {
+    return YES;
+  }
+
+  return NO;
 }
 
 @end
