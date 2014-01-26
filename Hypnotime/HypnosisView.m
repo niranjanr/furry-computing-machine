@@ -96,5 +96,19 @@
     }
 }
 
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
+    UITouch *touch = [touches anyObject];
+    CGPoint p = [touch locationInView:self];
+    self.boxLayer.position = p;
+}
+
+- (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event {
+    UITouch *touch = [touches anyObject];
+    CGPoint p = [touch locationInView:self];
+    [CATransaction begin];
+    [CATransaction setDisableActions:YES];
+    self.boxLayer.position = p;
+    [CATransaction commit];
+}
 
 @end
