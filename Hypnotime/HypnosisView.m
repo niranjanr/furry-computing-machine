@@ -61,6 +61,23 @@
     if (self) {
         self.backgroundColor = [UIColor clearColor];
         self.circleColor = [UIColor grayColor];
+        self.boxLayer = [[CALayer alloc] init];
+        self.boxLayer.bounds = CGRectMake(0, 0, 85, 85);
+        self.boxLayer.position = CGPointMake(160, 100);
+
+        // set the color of the layer to be reddish
+        UIColor *reddish = [UIColor colorWithRed:1 green:0 blue:0 alpha:0.5];
+        CGColorRef cgRefReddish = [reddish CGColor];
+        self.boxLayer.backgroundColor = cgRefReddish;
+
+        UIImage *layerImage = [UIImage imageNamed:@"Hypno.png"];
+        CGImageRef layerImageRef = [layerImage CGImage];
+        [self.boxLayer setContents:(__bridge id)layerImageRef];
+        self.boxLayer.contentsRect = CGRectMake(-0.1, -0.1, 1.2, 1.2);
+        self.boxLayer.contentsGravity = kCAGravityResizeAspect;
+
+        // add the layer to the layer hierarchy
+        [self.layer addSublayer:self.boxLayer];
     }
 
     return self;

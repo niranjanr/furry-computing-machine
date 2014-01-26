@@ -27,6 +27,7 @@
 		C491C4E618628F3300AC961D /* Hypno@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C491C4E418628F3300AC961D /* Hypno@2x.png */; };
 		C491C4E918628F7200AC961D /* Time.png in Resources */ = {isa = PBXBuildFile; fileRef = C491C4E718628F7200AC961D /* Time.png */; };
 		C491C4EA18628F7200AC961D /* Time@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C491C4E818628F7200AC961D /* Time@2x.png */; };
+		F342CC3B189487B2007882D4 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F342CC3A189487B2007882D4 /* QuartzCore.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +68,7 @@
 		C491C4E418628F3300AC961D /* Hypno@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Hypno@2x.png"; sourceTree = "<group>"; };
 		C491C4E718628F7200AC961D /* Time.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Time.png; sourceTree = "<group>"; };
 		C491C4E818628F7200AC961D /* Time@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Time@2x.png"; sourceTree = "<group>"; };
+		F342CC3A189487B2007882D4 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +76,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F342CC3B189487B2007882D4 /* QuartzCore.framework in Frameworks */,
 				C491C4AC1862743D00AC961D /* CoreGraphics.framework in Frameworks */,
 				C491C4AE1862743D00AC961D /* UIKit.framework in Frameworks */,
 				C491C4AA1862743D00AC961D /* Foundation.framework in Frameworks */,
@@ -115,6 +118,7 @@
 		C491C4A81862743D00AC961D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				F342CC3A189487B2007882D4 /* QuartzCore.framework */,
 				C491C4A91862743D00AC961D /* Foundation.framework */,
 				C491C4AB1862743D00AC961D /* CoreGraphics.framework */,
 				C491C4AD1862743D00AC961D /* UIKit.framework */,
@@ -480,6 +484,7 @@
 				C491C4D41862743D00AC961D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C491C4D51862743D00AC961D /* Build configuration list for PBXNativeTarget "HypnotimeTests" */ = {
 			isa = XCConfigurationList;
@@ -488,6 +493,7 @@
 				C491C4D71862743D00AC961D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

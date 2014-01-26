@@ -8,10 +8,13 @@
 
 #import <Foundation/Foundation.h>
 
+@import QuartzCore;
+
 @interface HypnosisView : UIView {
 
 }
 
 @property (nonatomic, strong) UIColor *circleColor;
+@property (nonatomic, strong) CALayer *boxLayer;
 
 @end
