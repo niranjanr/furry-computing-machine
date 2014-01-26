@@ -13,5 +13,6 @@
 @property (nonatomic, weak) IBOutlet UILabel* timeLabel;
 
 - (IBAction)showCurrentTime:(id)sender;
+- (void)spinTimeLabel;
 
 @end
