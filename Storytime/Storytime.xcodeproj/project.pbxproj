@@ -20,6 +20,7 @@
 		42F96FB21896D8A600018E98 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 42F96FB01896D8A600018E98 /* InfoPlist.strings */; };
 		42F96FB41896D8A600018E98 /* StorytimeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 42F96FB31896D8A600018E98 /* StorytimeTests.m */; };
 		42F96FBE1896D8C300018E98 /* Storytime.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 42F96FBD1896D8C300018E98 /* Storytime.storyboard */; };
+		42F96FC11896DD7800018E98 /* ModalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 42F96FC01896DD7800018E98 /* ModalViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +51,8 @@
 		42F96FB11896D8A600018E98 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		42F96FB31896D8A600018E98 /* StorytimeTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StorytimeTests.m; sourceTree = "<group>"; };
 		42F96FBD1896D8C300018E98 /* Storytime.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Storytime.storyboard; sourceTree = SOURCE_ROOT; };
+		42F96FBF1896DD7800018E98 /* ModalViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModalViewController.h; sourceTree = "<group>"; };
+		42F96FC01896DD7800018E98 /* ModalViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModalViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +113,8 @@
 			isa = PBXGroup;
 			children = (
 				42F96FBD1896D8C300018E98 /* Storytime.storyboard */,
+				42F96FBF1896DD7800018E98 /* ModalViewController.h */,
+				42F96FC01896DD7800018E98 /* ModalViewController.m */,
 				42F96F9D1896D8A600018E98 /* BNRAppDelegate.h */,
 				42F96F9E1896D8A600018E98 /* BNRAppDelegate.m */,
 				42F96FA01896D8A600018E98 /* Images.xcassets */,
@@ -246,6 +251,7 @@
 			files = (
 				42F96F9B1896D8A600018E98 /* main.m in Sources */,
 				42F96F9F1896D8A600018E98 /* BNRAppDelegate.m in Sources */,
+				42F96FC11896DD7800018E98 /* ModalViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
