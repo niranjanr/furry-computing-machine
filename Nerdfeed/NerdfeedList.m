@@ -43,8 +43,14 @@
 }
 
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection {
-    NSString *xmlCheck = [[NSString alloc] initWithData:self.xmlData encoding:NSUTF8StringEncoding];
-    NSLog(@"XMLCheck: %@", xmlCheck);
+    NSXMLParser *parser = [[NSXMLParser alloc] initWithData:self.xmlData];
+    parser.delegate = self;
+    [parser parse];
+
+    self.xmlData = nil;
+    self.connection = nil;
+
+    [self.tableView reloadData];
 }
 
 - (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error {
