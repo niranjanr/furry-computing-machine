@@ -8,6 +8,9 @@
 
 #import <Foundation/Foundation.h>
 
-@interface NerdfeedList : UITableViewController
+@interface NerdfeedList : UITableViewController <NSURLConnectionDataDelegate>
+
+@property (nonatomic, strong) NSURLConnection *connection;
+@property (nonatomic, strong) NSMutableData *xmlData;
 
 @end
