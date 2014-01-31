@@ -1,0 +1,13 @@
+{
+    "name": "socket-king",
+    "version": "0.0.1",
+    "author": "Niranjan Ravichandran <neeraj.ravichandran@gmail.com>",
+    "description": "A simple web socket server that polls the Asana public API",
+    "dependencies": {
+        "colors": "*",
+        "express": "*",
+        "ws": "*",
+        "request": "*",
+        "lodash": "*"
+    }
+}
