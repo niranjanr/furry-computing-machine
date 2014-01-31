@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <SRWebSocket.h>
 
-@interface SocketsAppDelegate : UIResponder <UIApplicationDelegate>
+@interface SocketsAppDelegate : UIResponder <UIApplicationDelegate, SRWebSocketDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
 
