@@ -7,10 +7,12 @@
 //
 
 #import <Foundation/Foundation.h>
+@class NerdfeedRSSChannel;
 
-@interface NerdfeedList : UITableViewController <NSURLConnectionDataDelegate>
+@interface NerdfeedList : UITableViewController <NSURLConnectionDataDelegate, NSXMLParserDelegate>
 
 @property (nonatomic, strong) NSURLConnection *connection;
 @property (nonatomic, strong) NSMutableData *xmlData;
+@property (nonatomic, strong) NerdfeedRSSChannel *channel;
 
 @end
