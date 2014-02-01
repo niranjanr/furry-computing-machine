@@ -8,25 +8,32 @@
 
 #import "NerdfeedList.h"
 #import "NerdfeedRSSChannel.h"
+#import "NerdfeedRSSItem.h"
 
 @implementation NerdfeedList
 
+#pragma mark TableView methods
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-  // TODO:
-  return nil;
+  UITableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"UITableViewCell"];
+  if (cell == nil) {
+    cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"UITableViewCell"];
+  }
+  NerdfeedRSSItem *item = [self.channel.items objectAtIndex:indexPath.row];
+  cell.textLabel.text = item.title;
+  return cell;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-  // TODO:
-  return 0;
+  return [[self.channel items] count];
 }
 
-- (void)fetchEntries {
-  self.xmlData = [[NSMutableData alloc] init];
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+  [self.navigationController pushViewController:self.webViewController animated:YES];
 
-  NSURL *url = [NSURL URLWithString:@"http://www.apple.com/pr/feeds/pr.rss"];
+  NerdfeedRSSItem *entry = [self.channel.items objectAtIndex:indexPath.row];
+  NSURL *url = [NSURL URLWithString:entry.link];
   NSURLRequest *request = [NSURLRequest requestWithURL:url];
-  self.connection = [[NSURLConnection alloc] initWithRequest:request delegate:self startImmediately:YES];
+  [self.webViewController.webView loadRequest:request];
 }
 
 - (id)initWithStyle:(UITableViewStyle)style {
@@ -37,6 +44,16 @@
   }
 
   return self;
+}
+
+#pragma mark XML parsing and objects related stuff
+
+- (void)fetchEntries {
+  self.xmlData = [[NSMutableData alloc] init];
+
+  NSURL *url = [NSURL URLWithString:@"http://www.apple.com/pr/feeds/pr.rss"];
+  NSURLRequest *request = [NSURLRequest requestWithURL:url];
+  self.connection = [[NSURLConnection alloc] initWithRequest:request delegate:self startImmediately:YES];
 }
 
 - (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data {
@@ -52,6 +69,8 @@
   self.connection = nil;
 
   [self.tableView reloadData];
+
+  NSLog(@"%@ \r\n %@\r\n %@\r\n", self.channel, self.channel.title, self.channel.infoString);
 }
 
 - (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error {

@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		420D620F189B47EF0094AF98 /* NerdfeedRSSChannel.m in Sources */ = {isa = PBXBuildFile; fileRef = 420D620E189B47EF0094AF98 /* NerdfeedRSSChannel.m */; };
+		420D6213189C472B0094AF98 /* NerdfeedRSSItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 420D6212189C472B0094AF98 /* NerdfeedRSSItem.m */; };
+		420D6216189C49660094AF98 /* WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 420D6215189C49660094AF98 /* WebViewController.m */; };
 		42F96FCF1896DF7700018E98 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42F96FCE1896DF7700018E98 /* Foundation.framework */; };
 		42F96FD11896DF7700018E98 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42F96FD01896DF7700018E98 /* CoreGraphics.framework */; };
 		42F96FD31896DF7700018E98 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42F96FD21896DF7700018E98 /* UIKit.framework */; };
@@ -36,6 +38,10 @@
 /* Begin PBXFileReference section */
 		420D620D189B47EF0094AF98 /* NerdfeedRSSChannel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NerdfeedRSSChannel.h; sourceTree = "<group>"; };
 		420D620E189B47EF0094AF98 /* NerdfeedRSSChannel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NerdfeedRSSChannel.m; sourceTree = "<group>"; };
+		420D6211189C472B0094AF98 /* NerdfeedRSSItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NerdfeedRSSItem.h; sourceTree = SOURCE_ROOT; };
+		420D6212189C472B0094AF98 /* NerdfeedRSSItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NerdfeedRSSItem.m; sourceTree = SOURCE_ROOT; };
+		420D6214189C49660094AF98 /* WebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebViewController.h; sourceTree = "<group>"; };
+		420D6215189C49660094AF98 /* WebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebViewController.m; sourceTree = "<group>"; };
 		42F96FCB1896DF7700018E98 /* Nerdfeed.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Nerdfeed.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		42F96FCE1896DF7700018E98 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		42F96FD01896DF7700018E98 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -119,6 +125,10 @@
 				420D620E189B47EF0094AF98 /* NerdfeedRSSChannel.m */,
 				42F96FDD1896DF7700018E98 /* NerdfeedAppDelegate.h */,
 				42F96FDE1896DF7700018E98 /* NerdfeedAppDelegate.m */,
+				420D6211189C472B0094AF98 /* NerdfeedRSSItem.h */,
+				420D6212189C472B0094AF98 /* NerdfeedRSSItem.m */,
+				420D6214189C49660094AF98 /* WebViewController.h */,
+				420D6215189C49660094AF98 /* WebViewController.m */,
 				42F96FE01896DF7700018E98 /* Images.xcassets */,
 				42F96FD51896DF7700018E98 /* Supporting Files */,
 			);
@@ -251,7 +261,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				42F96FDB1896DF7700018E98 /* main.m in Sources */,
+				420D6216189C49660094AF98 /* WebViewController.m in Sources */,
 				420D620F189B47EF0094AF98 /* NerdfeedRSSChannel.m in Sources */,
+				420D6213189C472B0094AF98 /* NerdfeedRSSItem.m in Sources */,
 				42F96FFF1896DF9900018E98 /* NerdfeedList.m in Sources */,
 				42F96FDF1896DF7700018E98 /* NerdfeedAppDelegate.m in Sources */,
 			);

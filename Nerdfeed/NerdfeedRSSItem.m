@@ -1,38 +1,24 @@
 //
-//  NerdfeedRSSChannel.m
+//  NerdfeedRSSItem.m
 //  Nerdfeed
 //
-//  Created by Niranjan Ravichandran on 1/30/14.
+//  Created by Niranjan Ravichandran on 1/31/14.
 //  Copyright (c) 2014 Niranjan Ravichandran. All rights reserved.
 //
 
-#import "NerdfeedRSSChannel.h"
 #import "NerdfeedRSSItem.h"
 
-@implementation NerdfeedRSSChannel
-
-- (id)init {
-  self = [super init];
-  if (self) {
-    _items = [[NSMutableArray alloc] init];
-  }
-  return self;
-}
+@implementation NerdfeedRSSItem
 
 - (void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName attributes:(NSDictionary *)attributeDict {
   NSLog(@"%@ found element named %@", self, elementName);
 
   if ([elementName isEqualToString:@"title"]) {
-    self.currentString = [elementName mutableCopy];
+    self.currentString = [[NSMutableString alloc] init];
     self.title = self.currentString;
-  } else if ([elementName isEqualToString:@"description"]) {
-    self.currentString = [elementName mutableCopy];
-    self.infoString = self.currentString;
-  } else if ([elementName isEqualToString:@"item"]) {
-    NerdfeedRSSItem *entry = [[NerdfeedRSSItem alloc] init];
-    entry.parentParserDelegate = (id)self;
-    parser.delegate = entry;
-    [self.items addObject:entry];
+  } else if ([elementName isEqualToString:@"link"]) {
+    self.currentString = [[NSMutableString alloc] init];
+    self.link = self.currentString;
   }
 }
 
@@ -44,7 +30,7 @@
   // relese this instance of the NSString since the corresponding permanent iVar already keeps track of this
   self.currentString = nil;
 
-  if ([elementName isEqualToString:@"channel"]) {
+  if ([elementName isEqualToString:@"item"]) {
     parser.delegate = self.parentParserDelegate;
   }
 }

@@ -8,6 +8,7 @@
 
 #import "NerdfeedAppDelegate.h"
 #import "NerdfeedList.h"
+#import "WebViewController.h"
 
 @implementation NerdfeedAppDelegate
 
@@ -16,6 +17,10 @@
   self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
   NerdfeedList *lvc = [[NerdfeedList alloc] initWithStyle:UITableViewStylePlain];
   UINavigationController *mvc = [[UINavigationController alloc] initWithRootViewController:lvc];
+
+  WebViewController *wvc = [[WebViewController alloc] init];
+  [lvc setWebViewController:wvc];
+
   self.window.rootViewController = mvc;
 
   self.window.backgroundColor = [UIColor whiteColor];
