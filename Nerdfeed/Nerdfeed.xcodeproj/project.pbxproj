@@ -24,6 +24,7 @@
 		42F96FF41896DF7700018E98 /* NerdfeedTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 42F96FF31896DF7700018E98 /* NerdfeedTests.m */; };
 		42F96FFF1896DF9900018E98 /* NerdfeedList.m in Sources */ = {isa = PBXBuildFile; fileRef = 42F96FFE1896DF9900018E98 /* NerdfeedList.m */; };
 		F395E993189DC553009BF2D9 /* ChannelViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F395E992189DC553009BF2D9 /* ChannelViewController.m */; };
+		F395E996189DD712009BF2D9 /* BNRFeedStore.m in Sources */ = {isa = PBXBuildFile; fileRef = F395E995189DD712009BF2D9 /* BNRFeedStore.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +64,8 @@
 		42F96FFE1896DF9900018E98 /* NerdfeedList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NerdfeedList.m; sourceTree = SOURCE_ROOT; };
 		F395E991189DC553009BF2D9 /* ChannelViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ChannelViewController.h; path = ../ChannelViewController.h; sourceTree = "<group>"; };
 		F395E992189DC553009BF2D9 /* ChannelViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ChannelViewController.m; path = ../ChannelViewController.m; sourceTree = "<group>"; };
+		F395E994189DD712009BF2D9 /* BNRFeedStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BNRFeedStore.h; path = ../BNRFeedStore.h; sourceTree = "<group>"; };
+		F395E995189DD712009BF2D9 /* BNRFeedStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BNRFeedStore.m; path = ../BNRFeedStore.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,6 +125,8 @@
 		42F96FD41896DF7700018E98 /* Nerdfeed */ = {
 			isa = PBXGroup;
 			children = (
+				F395E994189DD712009BF2D9 /* BNRFeedStore.h */,
+				F395E995189DD712009BF2D9 /* BNRFeedStore.m */,
 				F395E991189DC553009BF2D9 /* ChannelViewController.h */,
 				F395E992189DC553009BF2D9 /* ChannelViewController.m */,
 				42F96FFD1896DF9900018E98 /* NerdfeedList.h */,
@@ -269,6 +274,7 @@
 				420D6216189C49660094AF98 /* WebViewController.m in Sources */,
 				420D620F189B47EF0094AF98 /* NerdfeedRSSChannel.m in Sources */,
 				420D6213189C472B0094AF98 /* NerdfeedRSSItem.m in Sources */,
+				F395E996189DD712009BF2D9 /* BNRFeedStore.m in Sources */,
 				42F96FFF1896DF9900018E98 /* NerdfeedList.m in Sources */,
 				42F96FDF1896DF7700018E98 /* NerdfeedAppDelegate.m in Sources */,
 				F395E993189DC553009BF2D9 /* ChannelViewController.m in Sources */,
