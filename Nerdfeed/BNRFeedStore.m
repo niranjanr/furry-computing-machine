@@ -7,6 +7,8 @@
 //
 
 #import "BNRFeedStore.h"
+#import "NerdfeedRSSChannel.h"
+#import "BNRConnection.h"
 
 @implementation BNRFeedStore
 
@@ -19,7 +21,15 @@
 }
 
 - (void)fetchRSSFeedWithCompletion:(void(^)(NerdfeedRSSChannel *obj, NSError *err))block {
-  // TODO:
+  NSURL *url = [NSURL URLWithString:@"http://www.apple.com/pr/feeds/pr.rss"];
+  NSURLRequest *req = [NSURLRequest requestWithURL:url];
+
+  NerdfeedRSSChannel *channel = [[NerdfeedRSSChannel alloc] init];
+
+  BNRConnection *connection = [[BNRConnection alloc] initWithRequest:req];
+  connection.completionBlock = block;
+  connection.xmlRootObject = channel;
+  [connection start];
 }
 
 @end

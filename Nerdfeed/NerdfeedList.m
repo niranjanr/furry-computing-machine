@@ -10,6 +10,7 @@
 #import "NerdfeedRSSChannel.h"
 #import "NerdfeedRSSItem.h"
 #import "ChannelViewController.h"
+#import "BNRFeedStore.h"
 
 @implementation NerdfeedList
 
@@ -83,47 +84,15 @@
 #pragma mark XML parsing and objects related stuff
 
 - (void)fetchEntries {
-  self.xmlData = [[NSMutableData alloc] init];
-
-  NSURL *url = [NSURL URLWithString:@"http://www.apple.com/pr/feeds/pr.rss"];
-  NSURLRequest *request = [NSURLRequest requestWithURL:url];
-  self.connection = [[NSURLConnection alloc] initWithRequest:request delegate:self startImmediately:YES];
-}
-
-- (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data {
-  [self.xmlData appendData:data];
-}
-
-- (void)connectionDidFinishLoading:(NSURLConnection *)connection {
-  NSXMLParser *parser = [[NSXMLParser alloc] initWithData:self.xmlData];
-  parser.delegate = self;
-  [parser parse];
-
-  self.xmlData = nil;
-  self.connection = nil;
-
-  [self.tableView reloadData];
-
-  NSLog(@"%@ \r\n %@\r\n %@\r\n", self.channel, self.channel.title, self.channel.infoString);
-}
-
-- (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error {
-  self.connection = nil;
-  self.xmlData = nil;
-
-  NSString *errorString = [NSString stringWithFormat:@"Fetch failed: %@", [error localizedDescription]];
-  UIAlertView *av = [[UIAlertView alloc] initWithTitle:@"Error" message:errorString delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
-  [av show];
-}
-
--(void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName attributes:(NSDictionary *)attributeDict {
-  NSLog(@"%@ found a %@ element", self, elementName);
-
-  if ([elementName isEqualToString:@"channel"]) {
-    self.channel = [[NerdfeedRSSChannel alloc] init];
-    self.channel.parentParserDelegate = self;
-    parser.delegate = (id)self.channel;
-  }
+  [[BNRFeedStore sharedStore] fetchRSSFeedWithCompletion:^(NerdfeedRSSChannel *obj, NSError *err) {
+    if (!err) {
+      self.channel = obj;
+      [self.tableView reloadData];
+    } else {
+      UIAlertView *av = [[UIAlertView alloc] initWithTitle:@"Error" message:[err localizedDescription] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+      [av show];
+    }
+  }];
 }
 
 @end

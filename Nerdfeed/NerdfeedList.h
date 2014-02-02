@@ -11,10 +11,8 @@
 @class NerdfeedRSSChannel;
 @class WebViewController;
 
-@interface NerdfeedList : UITableViewController <NSURLConnectionDataDelegate, NSXMLParserDelegate>
+@interface NerdfeedList : UITableViewController <NSURLConnectionDataDelegate>
 
-@property (nonatomic, strong) NSURLConnection *connection;
-@property (nonatomic, strong) NSMutableData *xmlData;
 @property (nonatomic, strong) NerdfeedRSSChannel *channel;
 @property (nonatomic, strong) WebViewController *webViewController;
 
