@@ -9,6 +9,7 @@
 #import "NerdfeedList.h"
 #import "NerdfeedRSSChannel.h"
 #import "NerdfeedRSSItem.h"
+#import "ChannelViewController.h"
 
 @implementation NerdfeedList
 
@@ -30,6 +31,11 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
   if (!self.splitViewController) {
     [self.navigationController pushViewController:(UIViewController *)self.webViewController animated:YES];
+  } else {
+    UINavigationController *nvc = [[UINavigationController alloc] initWithRootViewController:(id)self.webViewController];
+    NSArray *vcs = @[self.navigationController, nvc];
+    self.splitViewController.viewControllers = vcs;
+    self.splitViewController.delegate = (id)self.webViewController;
   }
 
   NerdfeedRSSItem *entry = [self.channel.items objectAtIndex:indexPath.row];
@@ -40,10 +46,31 @@
   self = [super initWithStyle:style];
 
   if (self) {
+    UIBarButtonItem *bbi = [[UIBarButtonItem alloc] initWithTitle:@"Info" style:UIBarButtonItemStyleBordered target:self action:@selector(showInfo:)];
+    self.navigationItem.rightBarButtonItem = bbi;
     [self fetchEntries];
   }
 
   return self;
+}
+
+- (void)showInfo:(id)sender {
+  ChannelViewController *channelViewController = [[ChannelViewController alloc] initWithStyle:UITableViewStyleGrouped];
+
+  if (self.splitViewController) {
+    UINavigationController *nvc = [[UINavigationController alloc] initWithRootViewController:channelViewController];
+    NSArray *vcs = @[self.navigationController, nvc];
+    self.splitViewController.viewControllers = vcs;
+    self.splitViewController.delegate = (id)channelViewController;
+
+    NSIndexPath *selectedIndexPath = [self.tableView indexPathForSelectedRow];
+    if (selectedIndexPath) {
+      [self.tableView deselectRowAtIndexPath:selectedIndexPath animated:YES];
+    }
+  } else {
+    [self.navigationController pushViewController:channelViewController animated:YES];
+  }
+  [channelViewController listViewController:self handleObject:self.channel];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation {
