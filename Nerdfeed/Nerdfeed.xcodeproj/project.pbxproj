@@ -61,8 +61,8 @@
 		42F96FF31896DF7700018E98 /* NerdfeedTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NerdfeedTests.m; sourceTree = "<group>"; };
 		42F96FFD1896DF9900018E98 /* NerdfeedList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NerdfeedList.h; sourceTree = SOURCE_ROOT; };
 		42F96FFE1896DF9900018E98 /* NerdfeedList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NerdfeedList.m; sourceTree = SOURCE_ROOT; };
-		F395E991189DC553009BF2D9 /* ChannelViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChannelViewController.h; sourceTree = "<group>"; };
-		F395E992189DC553009BF2D9 /* ChannelViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChannelViewController.m; sourceTree = "<group>"; };
+		F395E991189DC553009BF2D9 /* ChannelViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ChannelViewController.h; path = ../ChannelViewController.h; sourceTree = "<group>"; };
+		F395E992189DC553009BF2D9 /* ChannelViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ChannelViewController.m; path = ../ChannelViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,8 +92,6 @@
 		42F96FC21896DF7700018E98 = {
 			isa = PBXGroup;
 			children = (
-				F395E991189DC553009BF2D9 /* ChannelViewController.h */,
-				F395E992189DC553009BF2D9 /* ChannelViewController.m */,
 				42F96FD41896DF7700018E98 /* Nerdfeed */,
 				42F96FED1896DF7700018E98 /* NerdfeedTests */,
 				42F96FCD1896DF7700018E98 /* Frameworks */,
@@ -124,6 +122,8 @@
 		42F96FD41896DF7700018E98 /* Nerdfeed */ = {
 			isa = PBXGroup;
 			children = (
+				F395E991189DC553009BF2D9 /* ChannelViewController.h */,
+				F395E992189DC553009BF2D9 /* ChannelViewController.m */,
 				42F96FFD1896DF9900018E98 /* NerdfeedList.h */,
 				42F96FFE1896DF9900018E98 /* NerdfeedList.m */,
 				420D620D189B47EF0094AF98 /* NerdfeedRSSChannel.h */,
