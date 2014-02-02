@@ -95,7 +95,13 @@
 #pragma mark XML parsing and objects related stuff
 
 - (void)fetchEntries {
+  UIView *currentView = self.navigationItem.titleView;
+  UIActivityIndicatorView *aiv = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhite];
+  self.navigationItem.titleView = aiv;
+  [aiv startAnimating];
+
   void(^completionBlock)(NerdfeedRSSChannel *obj, NSError *error) = ^(NerdfeedRSSChannel *obj, NSError *err) {
+    self.navigationItem.titleView = currentView;
     if (!err) {
       self.channel = obj;
       [self.tableView reloadData];
