@@ -69,6 +69,7 @@
 		F395E995189DD712009BF2D9 /* BNRFeedStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BNRFeedStore.m; path = ../BNRFeedStore.m; sourceTree = "<group>"; };
 		F395E997189EEC0F009BF2D9 /* BNRConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BNRConnection.h; path = ../BNRConnection.h; sourceTree = "<group>"; };
 		F395E998189EEC0F009BF2D9 /* BNRConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BNRConnection.m; path = ../BNRConnection.m; sourceTree = "<group>"; };
+		F3A21EEF189EF919009EF132 /* JSONSerializable.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = JSONSerializable.h; path = ../JSONSerializable.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -144,6 +145,7 @@
 				420D6212189C472B0094AF98 /* NerdfeedRSSItem.m */,
 				420D6214189C49660094AF98 /* WebViewController.h */,
 				420D6215189C49660094AF98 /* WebViewController.m */,
+				F3A21EEF189EF919009EF132 /* JSONSerializable.h */,
 				42F96FE01896DF7700018E98 /* Images.xcassets */,
 				42F96FD51896DF7700018E98 /* Supporting Files */,
 			);
