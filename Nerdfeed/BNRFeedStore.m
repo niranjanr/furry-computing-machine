@@ -33,14 +33,51 @@
 }
 
 - (void)fetchTopSongs:(int)count  withCompletion:(void(^)(NerdfeedRSSChannel *obj, NSError *err))block {
+  NSString *cachePath = [NSSearchPathForDirectoriesInDomains(
+                                                             NSCachesDirectory,
+                                                             NSUserDomainMask,
+                                                             YES) objectAtIndex:0];
+  cachePath =[cachePath stringByAppendingString:@"apple.archive"];
+  NSDate *tscd = self.topSongsCachedDate;
+  if (tscd) {
+    NSTimeInterval cacheAge = [self.topSongsCachedDate timeIntervalSinceNow];
+    if (cacheAge > -300) {
+      NSLog(@"Reading cache");
+      NerdfeedRSSChannel *cachedChannel = [NSKeyedUnarchiver unarchiveObjectWithFile:cachePath];
+      if (cachedChannel) {
+        [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+          block(cachedChannel, nil);
+        }];
+        return;
+      }
+    }
+  }
+
   NSString *requestString = [NSString stringWithFormat:@"https://itunes.apple.com/us/rss/topsongs/limit=%d/json", count];
   NSURL *url = [NSURL URLWithString:requestString];
   NSURLRequest *request = [NSURLRequest requestWithURL:url];
   NerdfeedRSSChannel *channel = [[NerdfeedRSSChannel alloc] init];
   BNRConnection *connection = [[BNRConnection alloc] initWithRequest:request];
-  connection.completionBlock = block;
   connection.jsonRootObject = channel;
+  connection.completionBlock = ^(NerdfeedRSSChannel *obj, NSError *err) {
+    if (!err) {
+      self.topSongsCachedDate = [NSDate date];
+      [NSKeyedArchiver archiveRootObject:obj toFile:cachePath];
+    }
+    block(obj, err);
+  };
 
   [connection start];
 }
+
+#pragma mark topSongsCachedDate methods
+
+- (NSDate *)topSongsCachedDate {
+  return [[NSUserDefaults standardUserDefaults] objectForKey:@"topSongsCachedDate"];
+}
+
+- (void)setTopSongsCachedDate:(NSDate *)topSongsCachedDate {
+  [[NSUserDefaults standardUserDefaults] setObject:topSongsCachedDate forKey:@"topSongsCachedDate"];
+}
+
 @end

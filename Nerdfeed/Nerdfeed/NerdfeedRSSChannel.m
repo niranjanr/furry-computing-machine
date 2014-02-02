@@ -62,4 +62,21 @@
   }
 }
 
+- (void)encodeWithCoder:(NSCoder *)aCoder {
+  [aCoder encodeObject:self.items forKey:@"items"];
+  [aCoder encodeObject:self.title forKey:@"title"];
+  [aCoder encodeObject:self.infoString forKey:@"infoString"];
+}
+
+- (id)initWithCoder:(NSCoder *)aDecoder {
+  self = [super init];
+
+  if (self) {
+    _items = [aDecoder decodeObjectForKey:@"items"];
+    self.infoString = [aDecoder decodeObjectForKey:@"infoString"];
+    self.title = [aDecoder decodeObjectForKey:@"title"];
+  }
+  return self;
+}
+
 @end

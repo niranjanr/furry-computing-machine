@@ -46,4 +46,20 @@
   }
 }
 
+- (void)encodeWithCoder:(NSCoder *)aCoder {
+  [aCoder encodeObject:self.title forKey:@"title"];
+  [aCoder encodeObject:self.link forKey:@"link"];
+}
+
+- (id)initWithCoder:(NSCoder *)aDecoder {
+  self = [super init];
+
+  if (self) {
+    self.title = [aDecoder decodeObjectForKey:@"title"];
+    self.link = [aDecoder decodeObjectForKey:@"link"];
+  }
+  return self;
+}
+
+
 @end
