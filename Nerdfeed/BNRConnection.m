@@ -38,14 +38,23 @@ static NSMutableArray *sharedConnectionList = nil;
 }
 
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection {
+  id rootObject = nil;
   if (self.xmlRootObject) {
     NSXMLParser *parser = [[NSXMLParser alloc] initWithData:self.container];
     parser.delegate = self.xmlRootObject;
     [parser parse];
+
+    rootObject = self.xmlRootObject;
+  } else if (self.jsonRootObject) {
+    NSDictionary *d = [NSJSONSerialization JSONObjectWithData:self.container
+                                                      options:0
+                                                        error:nil];
+    [self.jsonRootObject readJSONFromDictionary:d];
+    rootObject = self.jsonRootObject;
   }
 
   if (self.completionBlock) {
-    self.completionBlock(self.xmlRootObject, nil);
+    self.completionBlock(rootObject, nil);
   }
 
   [sharedConnectionList removeObject:self];

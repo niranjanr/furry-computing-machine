@@ -50,4 +50,16 @@
   }
 }
 
+- (void)readJSONFromDictionary:(NSDictionary *)dict {
+  NSDictionary *feed = [dict objectForKey:@"feed"];
+  self.title = [[feed objectForKey:@"title"] objectForKey:@"label"];
+
+  NSArray *entries = [feed objectForKey:@"entry"];
+  for (NSDictionary *entry in entries) {
+    NerdfeedRSSItem *i = [[NerdfeedRSSItem alloc] init];
+    [i readJSONFromDictionary:entry];
+    [self.items addObject:i];
+  }
+}
+
 @end

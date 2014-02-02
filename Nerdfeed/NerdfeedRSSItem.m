@@ -36,4 +36,14 @@
   }
 }
 
+- (void)readJSONFromDictionary:(NSDictionary *)dict {
+  self.title = [[dict objectForKey:@"title"] objectForKey:@"label"];
+
+  NSArray *links = [dict objectForKey:@"link"];
+  if (links.count > 1) {
+    NSDictionary *sampleDict = [[links objectAtIndex:1] objectForKey:@"attributes"];
+    self.link = [sampleDict objectForKey:@"href"];
+  }
+}
+
 @end

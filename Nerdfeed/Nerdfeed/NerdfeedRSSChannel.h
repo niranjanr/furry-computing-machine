@@ -7,8 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "JSONSerializable.h"
 
-@interface NerdfeedRSSChannel : NSObject <NSXMLParserDelegate>
+@interface NerdfeedRSSChannel : NSObject <NSXMLParserDelegate, JSONSerializable>
 
 @property (nonatomic, weak) id parentParserDelegate;
 @property (nonatomic, strong) NSString *title;

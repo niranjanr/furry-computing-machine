@@ -7,8 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "JSONSerializable.h"
 
-@interface NerdfeedRSSItem : NSObject <NSXMLParserDelegate>
+@interface NerdfeedRSSItem : NSObject <NSXMLParserDelegate, JSONSerializable>
 
 @property (nonatomic, strong) NSMutableString *currentString;
 @property (nonatomic, strong) NSString *title;
