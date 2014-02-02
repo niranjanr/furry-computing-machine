@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "NerdfeedList.h"
 
-@interface WebViewController : UIViewController <ListViewControllerDelegate>
+@interface WebViewController : UIViewController <ListViewControllerDelegate, UISplitViewControllerDelegate>
 
 @property (nonatomic, readonly) UIWebView *webView;
 

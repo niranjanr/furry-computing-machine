@@ -11,7 +11,7 @@
 
 @class NerdfeedRSSChannel;
 
-@interface ChannelViewController : UITableViewController <ListViewControllerDelegate>
+@interface ChannelViewController : UITableViewController <ListViewControllerDelegate, UISplitViewControllerDelegate>
 
 @property (nonatomic, strong) NerdfeedRSSChannel *channel;
 
