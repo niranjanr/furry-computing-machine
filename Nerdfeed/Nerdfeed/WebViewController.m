@@ -7,6 +7,7 @@
 //
 
 #import "WebViewController.h"
+#import "NerdfeedRSSItem.h"
 
 @implementation WebViewController
 
@@ -19,6 +20,26 @@
 
 - (UIWebView *)webView {
   return (UIWebView *)self.view;
+}
+
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation {
+  if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
+    return YES;
+  }
+  return (toInterfaceOrientation == UIInterfaceOrientationPortrait);
+}
+
+- (void)listViewController:(NerdfeedList *)lvc handleObject:(id)object {
+  NerdfeedRSSItem *entry = object;
+
+  if (![entry isKindOfClass:[NerdfeedRSSItem class]]) {
+    return;
+  }
+
+  NSURL *url = [NSURL URLWithString:entry.link];
+  NSURLRequest *urlRequest = [NSURLRequest requestWithURL:url];
+  [self.webView loadRequest:urlRequest];
+  self.navigationItem.title = entry.title;
 }
 
 @end

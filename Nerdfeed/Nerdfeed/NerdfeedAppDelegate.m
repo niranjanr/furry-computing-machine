@@ -21,7 +21,16 @@
   WebViewController *wvc = [[WebViewController alloc] init];
   [lvc setWebViewController:wvc];
 
-  self.window.rootViewController = mvc;
+  if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
+    UINavigationController *detailNav = [[UINavigationController alloc]initWithRootViewController:wvc];
+    NSArray *vcs = @[mvc, detailNav];
+    UISplitViewController *splitViewController = [[UISplitViewController alloc] init];
+    splitViewController.delegate = (id)wvc;
+    splitViewController.viewControllers = vcs;
+    self.window.rootViewController = splitViewController;
+  } else {
+    self.window.rootViewController = mvc;
+  }
 
   self.window.backgroundColor = [UIColor whiteColor];
   [self.window makeKeyAndVisible];

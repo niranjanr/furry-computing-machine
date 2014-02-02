@@ -28,12 +28,12 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-  [self.navigationController pushViewController:self.webViewController animated:YES];
+  if (!self.splitViewController) {
+    [self.navigationController pushViewController:(UIViewController *)self.webViewController animated:YES];
+  }
 
   NerdfeedRSSItem *entry = [self.channel.items objectAtIndex:indexPath.row];
-  NSURL *url = [NSURL URLWithString:entry.link];
-  NSURLRequest *request = [NSURLRequest requestWithURL:url];
-  [self.webViewController.webView loadRequest:request];
+  [(id)self.webViewController listViewController:self handleObject:entry];
 }
 
 - (id)initWithStyle:(UITableViewStyle)style {
@@ -44,6 +44,13 @@
   }
 
   return self;
+}
+
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation {
+  if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
+    return YES;
+  }
+  return (toInterfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
 #pragma mark XML parsing and objects related stuff

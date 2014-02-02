@@ -7,9 +7,12 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "NerdfeedList.h"
 
-@interface WebViewController : UIViewController
+@interface WebViewController : UIViewController <ListViewControllerDelegate>
 
 @property (nonatomic, readonly) UIWebView *webView;
+
+- (void)listViewController:(NerdfeedList *)lvc handleObject:(id)object;
 
 @end

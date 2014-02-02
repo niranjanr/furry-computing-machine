@@ -7,9 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "WebViewController.h"
 
 @class NerdfeedRSSChannel;
+@class WebViewController;
 
 @interface NerdfeedList : UITableViewController <NSURLConnectionDataDelegate, NSXMLParserDelegate>
 
@@ -17,5 +17,12 @@
 @property (nonatomic, strong) NSMutableData *xmlData;
 @property (nonatomic, strong) NerdfeedRSSChannel *channel;
 @property (nonatomic, strong) WebViewController *webViewController;
+
+@end
+
+
+@protocol ListViewControllerDelegate
+
+- (void)listViewController:(NerdfeedList *)lvc handleObject:(id)object;
 
 @end
