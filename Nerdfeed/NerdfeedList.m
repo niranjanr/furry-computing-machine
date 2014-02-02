@@ -49,10 +49,21 @@
   if (self) {
     UIBarButtonItem *bbi = [[UIBarButtonItem alloc] initWithTitle:@"Info" style:UIBarButtonItemStyleBordered target:self action:@selector(showInfo:)];
     self.navigationItem.rightBarButtonItem = bbi;
+
+    UISegmentedControl *rssTypeControl = [[UISegmentedControl alloc] initWithItems:@[@"Press", @"Apple"]];
+    rssTypeControl.selectedSegmentIndex = 0;
+    [rssTypeControl addTarget:self action:@selector(changeType:) forControlEvents:UIControlEventValueChanged];
+    self.navigationItem.titleView = rssTypeControl;
+
     [self fetchEntries];
   }
 
   return self;
+}
+
+- (void)changeType:(id)sender {
+  self.rssType = [sender selectedSegmentIndex];
+  [self fetchEntries];
 }
 
 - (void)showInfo:(id)sender {
@@ -84,7 +95,7 @@
 #pragma mark XML parsing and objects related stuff
 
 - (void)fetchEntries {
-  [[BNRFeedStore sharedStore] fetchRSSFeedWithCompletion:^(NerdfeedRSSChannel *obj, NSError *err) {
+  void(^completionBlock)(NerdfeedRSSChannel *obj, NSError *error) = ^(NerdfeedRSSChannel *obj, NSError *err) {
     if (!err) {
       self.channel = obj;
       [self.tableView reloadData];
@@ -92,7 +103,13 @@
       UIAlertView *av = [[UIAlertView alloc] initWithTitle:@"Error" message:[err localizedDescription] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
       [av show];
     }
-  }];
+  };
+
+  if (self.rssType == ListviewControllerRSSTypeApple) {
+    [[BNRFeedStore sharedStore] fetchTopSongs:10 withCompletion:completionBlock];
+  } else if (self.rssType == ListViewControllerRSSTypeBNR) {
+    [[BNRFeedStore sharedStore] fetchRSSFeedWithCompletion:completionBlock];
+  }
 }
 
 @end

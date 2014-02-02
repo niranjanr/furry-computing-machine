@@ -15,5 +15,6 @@
 + (BNRFeedStore *)sharedStore;
 
 - (void)fetchRSSFeedWithCompletion:(void(^)(NerdfeedRSSChannel *obj, NSError *err))block;
+- (void)fetchTopSongs:(int)count  withCompletion:(void(^)(NerdfeedRSSChannel *obj, NSError *err))block;
 
 @end

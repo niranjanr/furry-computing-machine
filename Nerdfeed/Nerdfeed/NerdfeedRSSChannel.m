@@ -28,7 +28,8 @@
   } else if ([elementName isEqualToString:@"description"]) {
     self.currentString = [elementName mutableCopy];
     self.infoString = self.currentString;
-  } else if ([elementName isEqualToString:@"item"]) {
+  } else if ([elementName isEqualToString:@"item"] ||
+             [elementName isEqualToString:@"entry"]) {
     NerdfeedRSSItem *entry = [[NerdfeedRSSItem alloc] init];
     entry.parentParserDelegate = (id)self;
     parser.delegate = entry;

@@ -11,10 +11,16 @@
 @class NerdfeedRSSChannel;
 @class WebViewController;
 
+typedef enum {
+  ListViewControllerRSSTypeBNR,
+  ListviewControllerRSSTypeApple
+} ListViewControllerRSSType;
+
 @interface NerdfeedList : UITableViewController <NSURLConnectionDataDelegate>
 
 @property (nonatomic, strong) NerdfeedRSSChannel *channel;
 @property (nonatomic, strong) WebViewController *webViewController;
+@property (nonatomic) ListViewControllerRSSType rssType;
 
 @end
 

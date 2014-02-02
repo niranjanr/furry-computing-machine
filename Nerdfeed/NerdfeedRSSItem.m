@@ -30,7 +30,8 @@
   // relese this instance of the NSString since the corresponding permanent iVar already keeps track of this
   self.currentString = nil;
 
-  if ([elementName isEqualToString:@"item"]) {
+  if ([elementName isEqualToString:@"item"] ||
+      [elementName isEqualToString:@"entry"]) {
     parser.delegate = self.parentParserDelegate;
   }
 }

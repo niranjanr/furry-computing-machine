@@ -32,4 +32,15 @@
   [connection start];
 }
 
+- (void)fetchTopSongs:(int)count  withCompletion:(void(^)(NerdfeedRSSChannel *obj, NSError *err))block {
+  NSString *requestString = [NSString stringWithFormat:@"https://itunes.apple.com/us/rss/topsongs/limit=%d/xml", count];
+  NSURL *url = [NSURL URLWithString:requestString];
+  NSURLRequest *request = [NSURLRequest requestWithURL:url];
+  NerdfeedRSSChannel *channel = [[NerdfeedRSSChannel alloc] init];
+  BNRConnection *connection = [[BNRConnection alloc] initWithRequest:request];
+  connection.completionBlock = block;
+  connection.xmlRootObject = channel;
+
+  [connection start];
+}
 @end
