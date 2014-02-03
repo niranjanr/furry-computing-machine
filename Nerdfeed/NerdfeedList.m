@@ -124,8 +124,10 @@
         if (itemDelta > 0) {
           NSMutableArray *rows = [NSMutableArray array];
           for (int i =0; i < itemDelta; i++) {
-            // TODO:
+            NSIndexPath *ip = [NSIndexPath indexPathForRow:i inSection:0];
+            [rows addObject:ip];
           }
+          [self.tableView insertRowsAtIndexPaths:rows withRowAnimation:UITableViewRowAnimationTop];
         }
       }
     }];
