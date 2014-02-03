@@ -22,6 +22,11 @@
   }
   NerdfeedRSSItem *item = [self.channel.items objectAtIndex:indexPath.row];
   cell.textLabel.text = item.title;
+  if ([[BNRFeedStore sharedStore] hasItemBeenRead:item]) {
+    cell.accessoryType = UITableViewCellAccessoryCheckmark;
+  } else {
+    cell.accessoryType = UITableViewCellAccessoryNone;
+  }
   return cell;
 }
 
@@ -40,6 +45,8 @@
   }
 
   NerdfeedRSSItem *entry = [self.channel.items objectAtIndex:indexPath.row];
+  [[BNRFeedStore sharedStore] markItemAsRead:entry];
+  [[self.tableView cellForRowAtIndexPath:indexPath] setAccessoryType:UITableViewCellAccessoryCheckmark];
   [(id)self.webViewController listViewController:self handleObject:entry];
 }
 

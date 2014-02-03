@@ -10,6 +10,7 @@
 		420D620F189B47EF0094AF98 /* NerdfeedRSSChannel.m in Sources */ = {isa = PBXBuildFile; fileRef = 420D620E189B47EF0094AF98 /* NerdfeedRSSChannel.m */; };
 		420D6213189C472B0094AF98 /* NerdfeedRSSItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 420D6212189C472B0094AF98 /* NerdfeedRSSItem.m */; };
 		420D6216189C49660094AF98 /* WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 420D6215189C49660094AF98 /* WebViewController.m */; };
+		42B9F8EC189F4764000C8F01 /* Nerdfeed.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 42B9F8EA189F4764000C8F01 /* Nerdfeed.xcdatamodeld */; };
 		42F96FCF1896DF7700018E98 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42F96FCE1896DF7700018E98 /* Foundation.framework */; };
 		42F96FD11896DF7700018E98 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42F96FD01896DF7700018E98 /* CoreGraphics.framework */; };
 		42F96FD31896DF7700018E98 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42F96FD21896DF7700018E98 /* UIKit.framework */; };
@@ -45,6 +46,7 @@
 		420D6212189C472B0094AF98 /* NerdfeedRSSItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NerdfeedRSSItem.m; sourceTree = SOURCE_ROOT; };
 		420D6214189C49660094AF98 /* WebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebViewController.h; sourceTree = "<group>"; };
 		420D6215189C49660094AF98 /* WebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebViewController.m; sourceTree = "<group>"; };
+		42B9F8EB189F4764000C8F01 /* Nerdfeed.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Nerdfeed.xcdatamodel; sourceTree = "<group>"; };
 		42F96FCB1896DF7700018E98 /* Nerdfeed.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Nerdfeed.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		42F96FCE1896DF7700018E98 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		42F96FD01896DF7700018E98 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -99,6 +101,7 @@
 		42F96FC21896DF7700018E98 = {
 			isa = PBXGroup;
 			children = (
+				42B9F8EA189F4764000C8F01 /* Nerdfeed.xcdatamodeld */,
 				42F96FD41896DF7700018E98 /* Nerdfeed */,
 				42F96FED1896DF7700018E98 /* NerdfeedTests */,
 				42F96FCD1896DF7700018E98 /* Frameworks */,
@@ -277,6 +280,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				42B9F8EC189F4764000C8F01 /* Nerdfeed.xcdatamodeld in Sources */,
 				42F96FDB1896DF7700018E98 /* main.m in Sources */,
 				420D6216189C49660094AF98 /* WebViewController.m in Sources */,
 				420D620F189B47EF0094AF98 /* NerdfeedRSSChannel.m in Sources */,
@@ -500,6 +504,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		42B9F8EA189F4764000C8F01 /* Nerdfeed.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				42B9F8EB189F4764000C8F01 /* Nerdfeed.xcdatamodel */,
+			);
+			currentVersion = 42B9F8EB189F4764000C8F01 /* Nerdfeed.xcdatamodel */;
+			path = Nerdfeed.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 42F96FC31896DF7700018E98 /* Project object */;
 }
