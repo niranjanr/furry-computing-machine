@@ -114,7 +114,13 @@
   if (self.rssType == ListviewControllerRSSTypeApple) {
     [[BNRFeedStore sharedStore] fetchTopSongs:10 withCompletion:completionBlock];
   } else if (self.rssType == ListViewControllerRSSTypeBNR) {
-    [[BNRFeedStore sharedStore] fetchRSSFeedWithCompletion:completionBlock];
+    self.channel = [[BNRFeedStore sharedStore] fetchRSSFeedWithCompletion:^(NerdfeedRSSChannel *obj, NSError *err) {
+      self.navigationItem.titleView = currentView;
+      if (!err) {
+        // TODO: Page 543()
+      }
+    }];
+    [self.tableView reloadData];
   }
 }
 

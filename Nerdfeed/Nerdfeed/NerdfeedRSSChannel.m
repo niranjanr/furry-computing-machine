@@ -91,4 +91,12 @@
   }];
 }
 
+- (id)copyWithZone:(NSZone *)zone {
+  NerdfeedRSSChannel *c = [[self.class alloc] init];
+  c.title = self.title;
+  c.infoString = self.infoString;
+  c->_items = [self.items mutableCopy];
+  return c;
+}
+
 @end

@@ -20,16 +20,33 @@
   return localStore;
 }
 
-- (void)fetchRSSFeedWithCompletion:(void(^)(NerdfeedRSSChannel *obj, NSError *err))block {
+- (NerdfeedRSSChannel *)fetchRSSFeedWithCompletion:(void(^)(NerdfeedRSSChannel *obj, NSError *err))block {
   NSURL *url = [NSURL URLWithString:@"http://www.apple.com/pr/feeds/pr.rss"];
   NSURLRequest *req = [NSURLRequest requestWithURL:url];
 
   NerdfeedRSSChannel *channel = [[NerdfeedRSSChannel alloc] init];
 
   BNRConnection *connection = [[BNRConnection alloc] initWithRequest:req];
-  connection.completionBlock = block;
+  NSString *cachePath = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory,
+                                                             NSUserDomainMask,
+                                                             YES) objectAtIndex:0];
+  cachePath =[cachePath stringByAppendingString:@"nerd.archive"];
+  NerdfeedRSSChannel *cachedChannel = [NSKeyedUnarchiver unarchiveObjectWithFile:cachePath];
+  if (!cachedChannel) {
+    cachedChannel = [[NerdfeedRSSChannel alloc] init];
+    NerdfeedRSSChannel *channelCopy = [cachedChannel copy];
+
+    connection.completionBlock = ^(NerdfeedRSSChannel *obj, NSError *err) {
+      if (!err) {
+        [channelCopy addItemsFromChannel:obj];
+        [NSKeyedArchiver archiveRootObject:channelCopy toFile:cachePath];
+      }
+      block(channelCopy, err);
+    };
+  }
   connection.xmlRootObject = channel;
   [connection start];
+  return cachedChannel;
 }
 
 - (void)fetchTopSongs:(int)count  withCompletion:(void(^)(NerdfeedRSSChannel *obj, NSError *err))block {
