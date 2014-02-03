@@ -19,6 +19,8 @@
   } else if ([elementName isEqualToString:@"link"]) {
     self.currentString = [[NSMutableString alloc] init];
     self.link = self.currentString;
+  } else if ([elementName isEqualToString:@"pubDate"]) {
+    self.currentString = [[NSMutableString alloc] init];
   }
 }
 
@@ -27,6 +29,14 @@
 }
 
 - (void)parser:(NSXMLParser *)parser didEndElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName {
+  if ([elementName isEqualToString:@"pubDate"]) {
+    static NSDateFormatter *dateFormatter = nil;
+    if (!dateFormatter) {
+      dateFormatter = [[NSDateFormatter alloc] init];
+      [dateFormatter setDateFormat:@"EEE, dd MMM yyyy HH:mm:ss z"];
+      self.publicationDate = [dateFormatter dateFromString:self.currentString];
+    }
+  }
   // relese this instance of the NSString since the corresponding permanent iVar already keeps track of this
   self.currentString = nil;
 
@@ -49,6 +59,7 @@
 - (void)encodeWithCoder:(NSCoder *)aCoder {
   [aCoder encodeObject:self.title forKey:@"title"];
   [aCoder encodeObject:self.link forKey:@"link"];
+  [aCoder encodeObject:self.publicationDate forKey:@"publicationDate"];
 }
 
 - (id)initWithCoder:(NSCoder *)aDecoder {
@@ -57,9 +68,16 @@
   if (self) {
     self.title = [aDecoder decodeObjectForKey:@"title"];
     self.link = [aDecoder decodeObjectForKey:@"link"];
+    self.publicationDate = [aDecoder decodeObjectForKey:@"publicationDate"];
   }
   return self;
 }
 
+-(BOOL)isEqual:(id)object {
+  if (![object isKindOfClass:[NerdfeedRSSItem class]]) {
+    return NO;
+  }
+  return [self.link isEqual:[object link]];
+}
 
 @end

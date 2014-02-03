@@ -79,4 +79,16 @@
   return self;
 }
 
+- (void)addItemsFromChannel:(NerdfeedRSSChannel *)otherChannel {
+  for (NerdfeedRSSItem *i in otherChannel.items) {
+    if (![self.items containsObject:i]) {
+      [self.items addObject:i];
+    }
+  }
+
+  [self.items sortUsingComparator:^NSComparisonResult (id obj1, id obj2) {
+    return [[obj2 publicationDate] compare:[obj1 publicationDate]];
+  }];
+}
+
 @end

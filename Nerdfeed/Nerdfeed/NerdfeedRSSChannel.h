@@ -17,4 +17,6 @@
 @property (nonatomic, strong) NSMutableString *currentString;
 @property (nonatomic, strong, readonly) NSMutableArray *items;
 
+- (void)addItemsFromChannel:(NerdfeedRSSChannel *)otherChannel;
+
 @end
