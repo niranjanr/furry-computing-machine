@@ -117,7 +117,16 @@
     self.channel = [[BNRFeedStore sharedStore] fetchRSSFeedWithCompletion:^(NerdfeedRSSChannel *obj, NSError *err) {
       self.navigationItem.titleView = currentView;
       if (!err) {
-        // TODO: Page 543()
+        int currentItemCount = self.channel.items.count;
+        self.channel = obj;
+        int newItemCount = self.channel.items.count;
+        int itemDelta = newItemCount - currentItemCount;
+        if (itemDelta > 0) {
+          NSMutableArray *rows = [NSMutableArray array];
+          for (int i =0; i < itemDelta; i++) {
+            // TODO:
+          }
+        }
       }
     }];
     [self.tableView reloadData];
