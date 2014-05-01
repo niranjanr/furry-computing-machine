@@ -6,10 +6,10 @@
     android1:layout_height="fill_parent">
 
     <TextView
+        android1:id="@+id/question_text_view"
         android1:layout_width="wrap_content"
         android1:layout_height="wrap_content"
-        android1:padding="24dp"
-        android1:text="@string/question_text"/>
+        android1:padding="24dp"/>
 
     <LinearLayout
         android1:layout_width="wrap_content"
@@ -27,4 +27,10 @@
             android1:text="@string/false_button"
             android1:id="@+id/false_button"/>
     </LinearLayout>
+
+    <Button
+        android1:layout_width="wrap_content"
+        android1:layout_height="wrap_content"
+        android1:id="@+id/next_button"
+        android1:text="@string/next_button"/>
 </LinearLayout>
