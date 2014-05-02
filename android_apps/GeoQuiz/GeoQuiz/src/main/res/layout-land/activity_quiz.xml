@@ -1,0 +1,39 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res-android"
+    xmlns:android1="http://schemas.android.com/apk/res/android"
+    android1:layout_width="fill_parent"
+    android1:layout_height="fill_parent">
+
+    <TextView
+        android1:id="@+id/question_text_view"
+        android1:layout_width="wrap_content"
+        android1:layout_height="wrap_content"
+        android1:layout_gravity="center_horizontal"
+        android1:padding="24dp"/>
+
+    <LinearLayout
+        android1:layout_width="wrap_content"
+        android1:layout_height="wrap_content"
+        android1:orientation="horizontal"
+        android1:layout_gravity="center_vertical|center_horizontal">
+
+        <Button
+            android1:layout_width="wrap_content"
+            android1:layout_height="wrap_content"
+            android1:text="@string/true_button"
+            android1:id="@+id/true_button"/>
+        <Button
+            android1:layout_width="wrap_content"
+            android1:layout_height="wrap_content"
+            android1:text="@string/false_button"
+            android1:id="@+id/false_button"/>
+    </LinearLayout>
+
+    <Button
+        android1:layout_width="wrap_content"
+        android1:layout_height="wrap_content"
+        android1:id="@+id/next_button"
+        android1:text="@string/next_button"
+        android1:drawableRight="@drawable/arrow_right"
+        android1:drawablePadding="4dp"
+        android1:layout_gravity="bottom|right"/>
+</FrameLayout>
