@@ -32,5 +32,7 @@
         android1:layout_width="wrap_content"
         android1:layout_height="wrap_content"
         android1:id="@+id/next_button"
-        android1:text="@string/next_button"/>
+        android1:text="@string/next_button"
+        android1:drawableRight="@drawable/arrow_right"
+        android1:drawablePadding="4dp"/>
 </LinearLayout>
