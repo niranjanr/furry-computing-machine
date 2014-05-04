@@ -19,6 +19,7 @@ public class QuizActivity extends ActionBarActivity {
     private Button mNextButton;
     private Button mCheatButton;
     private TextView mQuestionTextView;
+    private boolean mIsCheater;
 
     private int mCurrentIndex = 0;
 
@@ -32,6 +33,13 @@ public class QuizActivity extends ActionBarActivity {
             new TrueFalse(R.string.question_americas, true),
             new TrueFalse(R.string.question_asia, true)
     };
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        // TODO
+    }
 
     @Override
     protected void onSaveInstanceState(Bundle outState) {
