@@ -31,6 +31,13 @@
     <Button
         android1:layout_width="wrap_content"
         android1:layout_height="wrap_content"
+        android1:id="@+id/cheat_button"
+        android1:layout_gravity="bottom|center"
+        android1:text="@string/cheat_button"/>
+
+    <Button
+        android1:layout_width="wrap_content"
+        android1:layout_height="wrap_content"
         android1:id="@+id/next_button"
         android1:text="@string/next_button"
         android1:drawableRight="@drawable/arrow_right"
