@@ -1,6 +1,8 @@
 package com.nr.android.geoquiz;
 
+import android.app.ActionBar;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
@@ -10,7 +12,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
-
+import android.annotation.TargetApi;
 
 public class QuizActivity extends ActionBarActivity {
 
@@ -49,11 +51,17 @@ public class QuizActivity extends ActionBarActivity {
     }
 
     @Override
+    @TargetApi(11)
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Log.d(TAG, "onCreate(bundle) called");
 
         setContentView(R.layout.activity_quiz);
+
+        if (Build.VERSION.SDK_INT > Build.VERSION_CODES.HONEYCOMB) {
+            ActionBar actionBar = getActionBar();
+            actionBar.setSubtitle("Bodies of water");
+        }
 
         mFalseButton = (Button)findViewById(R.id.false_button);
         mFalseButton.setOnClickListener(new View.OnClickListener() {
