@@ -25,6 +25,14 @@ public class CrimeFragment extends Fragment {
 
     public static final String EXTRA_CRIME_ID = "EXTRA_CRIME_ID";
 
+    public static CrimeFragment newInstance(UUID id) {
+        Bundle args = new Bundle();
+        args.putSerializable(EXTRA_CRIME_ID, id);
+        CrimeFragment newFragment = new CrimeFragment();
+        newFragment.setArguments(args);
+        return newFragment;
+    }
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
