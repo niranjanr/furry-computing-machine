@@ -1,7 +1,10 @@
 package com.nr.android.criminalintent.app;
 
+import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.DialogFragment;
 import android.view.View;
@@ -39,7 +42,12 @@ public class DatePickerFragment extends DialogFragment{
         return new AlertDialog.Builder(getActivity())
                 .setView(v)
                 .setTitle(R.string.date_picker_title)
-                .setPositiveButton(android.R.string.ok, null)
+                .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        sendResult(Activity.RESULT_OK);
+                    }
+                })
                 .create();
     }
 
@@ -49,5 +57,14 @@ public class DatePickerFragment extends DialogFragment{
         DatePickerFragment fragment = new DatePickerFragment();
         fragment.setArguments(args);
         return fragment;
+    }
+
+    public void sendResult(int resultCode) {
+        if (getTargetFragment() == null) {
+            return;
+        }
+        Intent i = new Intent();
+        i.putExtra(EXTRA_DATE, mDate);
+        getTargetFragment().onActivityResult(getTargetRequestCode(), resultCode, i);
     }
 }
